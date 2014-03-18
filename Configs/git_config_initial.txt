@@ -1,0 +1,2 @@
+user.name=carrascoMDDsl
+user.email=carrascoGitHub@ModelDD.org

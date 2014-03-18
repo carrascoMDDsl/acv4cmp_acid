@@ -1,0 +1,136 @@
+201403182247
+
+# Configure git user
+
+git config --global user.name carrascoMDDsl
+git config --global user.email carrascoGitHub@ModelDD.org
+
+pinksingerfifteehundred
+
+# To hold git repositories for CMProductions
+
+mkdir ~/Works/MDD/CMProductions/gits
+cd ~/Works/MDD/CMProductions/gits
+
+
+# Clone from repository to a working directory
+
+git clone https://github.com/carrascoMDDsl/acv4cmp_acid.git
+cd ~/Works/MDD/CMProductions/gits/acv4cmp_acid
+
+# Create initial structure
+mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
+
+cp ~ Works/MDD/CMProductions/SVNs/acv4cmp/trunk/Interviews/Interview4-EndToEnd/Acid-BFG68srsNuMZspGPyb2Latqn.html ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
+
+
+mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Instructions
+
+# This file
+touch ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Instructions/Instructions_doer.txt
+touch ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Instructions/Instructions_reviewer.txt
+
+
+mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Commands
+
+
+mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Configs
+
+# Store initial git config
+git config --list > ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Configs/git_config_initial.txt
+
+git remote -v
+
+
+# stage the initial structure
+
+git add ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
+git add ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Instructions
+git add ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Commands
+git add ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Configs
+
+
+# see changes
+git status
+git diff
+git diff --staged
+
+# commit staged changes 
+git commit -m "Initial structure"
+
+# Or
+git commit -a -m "Initial structure"
+# Or, later, may be
+git commit --amend
+
+# See history
+git log
+# Or
+git log -p
+# Or
+git log -stat
+# Or
+git log --pretty=oneline
+# Or
+sudo apt-get install gitk
+gitk
+
+
+# No need to add remote, as we begun with a clone of the repository in github
+# To add extra repositories we'd do
+#   git remote add [shortname] [url]
+#   git fetch [remote-name]
+
+# from origin
+#   git pull
+
+
+# Send changes to repository in github
+git push 
+
+# See fetch & push bindings with server of local branch
+git remote show 
+git remote show origin
+
+# #####################################################3
+
+git commit -a -m "GIT loop"
+git push 
+
+# #####################################################3
+# #####################################################3
+# #####################################################3
+
+
+
+# Add the work done on personal svn repository
+cp -r ~/Works/MDD/CMProductions/SVNs/acv4cmp/trunk/Code/Result/cmp ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Code
+
+# Remove .svn directories
+find ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Code/cmp -name '.svn' -exec rm -r {} \;
+
+# Stage the Code directory
+git add ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Code
+
+# Commit, Push to github
+git commit -a -m "First code drop"
+git push 
+
+ls
+
+
+# #####################################################3
+# #####################################################3
+# #####################################################3
+
+
+
+
+
+
+
+
+
+
+
+
