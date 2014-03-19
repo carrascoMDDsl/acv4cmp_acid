@@ -682,14 +682,8 @@ vagrant provision
 # ###################################################################
 
 # OK. NICE. JUST IN TIME
-#   ah, well, I lost a few minutes with the fireworks
-#   actually, I am running with a solid-state-drive
-#   otherwise I wouldn't have dared to open my windows
-#   Double (triple? glazed:
-#     "silence" composite of 4+4 mm plus second 6 mm glass !!!
-#     yep, that managed to stop a lot of the explosions!
-#   Sorry, too many years out of Valencia en Fallas,
-#   did not remember how crazy this is .
+#   ah, well, I lost those few minutes with the fireworks, anyway.
+
 # ###################################################################
 # ###################################################################
 # ###################################################################
@@ -796,4 +790,18 @@ vagrant up
 # ###################################################################
 
 
+# ###################################################################
+
+# TIMESTAMP
+# 201403190329
+# OK. Repeated on a different machine, also with Ubuntu 12.04LTSx64
+#    With VirtualBox re-installed from downloaded last version
+#    vagrant had to be installed, too.
+#
+#     ---- BTW the machine needs a full, clean install of Ubuntu:
+#          can not upgrade packages, as a source (clon) starting with
+#          es. is not accessible,
+#          Update Manager just fails miserably,
+#          and apt-get complains badly.
+# ###################################################################
 
