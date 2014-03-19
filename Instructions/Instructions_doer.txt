@@ -668,8 +668,12 @@ vagrant provision
 
 # Just drop the acv4cmp app in the shared folder
 
+# ###################################################################
 
-# And the application is up and runnign !
+# Visit
+#   http://192.168.56.101/
+# And the application is up and running OK !
+
 
 # ###################################################################
 
@@ -742,18 +746,54 @@ cp Vagrantfile Vagrantfile_beforeRelativeShare
 
 
 
-# Destroy VM
-vagrant destroy
-
-# And provision again
-
-# Will it work the trick for relative shared source ?
-
-
 # ###################################################################
 
 # TIMESTAMP
 # 201403190252
 # ###################################################################
+
+
+# Destroy VM
+vagrant destroy
+
+# And provision again
+vagrant up
+
+
+
+# Noticed (for second time)
+# message:
+# Faraday: you may want to install system_timer for reliable timeouts
+# after "Running initial r10k"
+# and I see that it stops for a while, not consuming any CPU or disk
+# so may be the "realiable timeout" recommendation actually is worth to install the package
+# from the PuPHPet specification.
+
+
+# Will it work the trick for relative shared source ?
+#   Looks so, even before completing the provisioning
+#   because the installation of phpMyAdmin
+#   has already populated the host shared directory with
+#   html/phpmyadmin
+
+
+# Completed the provisioning at 201403190301 ...
+
+# ###################################################################
+
+# Clear the browser cache
+# Visit
+#   http://192.168.56.101/
+# And the application is up and running OK !
+
+
+# ###################################################################
+
+# TIMESTAMP
+# 201403190302
+# OK. Repeated and improved by making the shared folder relative
+# to wherever the vagrant is "up"
+# ###################################################################
+
 
 
