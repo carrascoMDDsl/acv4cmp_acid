@@ -817,7 +817,6 @@ mkdir vagrant_tmp
 cd vagrant_tmp
 git clone https://github.com/carrascoMDDsl/acv4cmp_acid.git
 cd acv4cmp_acid
-# SOBRA vagrant init
 vagrant up
 google-chrome http://192.168.56.101/
 
