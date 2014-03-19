@@ -1,0 +1,72 @@
+
+<!-- saved from url=(0058)http://162.250.78.100/3veV8ZP86yxhkFUSFQxt34AZ/index2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body>
+        <h1>Welcome to the CM Productions AMUSEMENT PARK trial test (page 2/2)</h1>
+        This page is about what we <b>expect</b> from you. Read it carefully.
+        <h2>Your objective</h2>
+        <ul>
+            <li>You are requested to <b>design</b> the model of the MVC structure of the park, so other coders <b>can build any application</b> ontop of it.
+            </li><li>The static data for the model comes from the DB</li>
+            <li>The real-time data for the model comes from an API</li>
+            <li>The output of your model is what we call "The Model API"</li> - You are the responsible of designing and creating that API.
+        </ul>
+        <h2>The RealTime API</h2>
+        <ul>
+            <li>Not to be confused with "the Model API".</li>
+            <li>This API will be called by your Model to get real time data.</li>
+            <li>It is based on POST requests to a controller, sending JSON data and obtaining JSON data.</li>
+            <li>The API controller is this one: <a href="http://162.250.78.100/api/api.php">api.php</a></li>
+            <li>The API documentation is here: <a href="http://162.250.78.100/api/readme.txt">readme.txt</a></li>
+            <li>For you convenience we have built and API-TESTER taht we reccomend to try: <a href="http://162.250.78.100/api_test/apiTest.html">apiTest.html</a> - We have tested it in Firefox</li>
+        </ul>
+        <h2>Your API</h2>
+        <ul>
+            <li>You can imagine that the application that is going to consume your application can be either:</li>
+            <ul>
+                    <li>a controller from an HTTP request.</li>
+                    <li>a command for the command line.</li>
+            </ul>
+            <li>The controller, or the command line, will invoke you as this:</li>
+<pre style="border:1px solid #c0c0c0">$parkManager = $serviceProvider-&gt;getService( "parkManager" );
+$park = $parkManager-&gt;getPark( "SeaWorld" );
+$park-&gt;.....
+</pre>
+        </ul>
+        <h2>How we are going to evaluate you</h2>
+        <ul>
+            <li>We are NOT expecting that you write the code.</li>
+            <li>We expect that you:</li>
+            <ol type="a">
+                <li>Write one text file listing the classes, interfaces, methods, etc. but only the signatures, not the content.
+                </li><li>If you prefer, you can draw a block-diagram (UML or any invented syntax can work)</li>
+            </ol>
+            <li>What we valuate the most is your <b>mind structure.</b></li>
+            <li>We therefore will be much happier if you <b>think out loud</b> even if you are having "temporary thoughts"</li>
+            <li>We also will evaluate how intelligent are your questions. We have not provided all the information and we seek a balance of people that is autonomous (so will not interrupt the team at each second) but also that do not get stuck to a problem for a long time and are able to request help. Do your best to be "an autonomous team player"</li>
+            <li>When you are investigating... we would love to hear what are you looking for and why.</li>
+            <li>We will valuate better <b>clean code</b> that is mainatainable over time, more than <b>code that just works</b> but lacks profound thinking.</li>
+        </ul>
+        <h2>Example of output</h2>
+        <ul>
+            <li>We expect that you write a text document with the API of the MODEL, listing the classes, the interfaces, the inheritances, etc, and for each one, the methods it's going to provide, with the return datatype and the parameters (and types) you will pass to each method</li>
+        </ul>
+        You can use a metalanguage similar to the following example:
+<pre style="border:1px solid #c0c0c0">Interface MyInterface1
+
+Class MyClass1 implements MyInterface1
+    void method1( int $param1, double $param2 );
+
+Class MyClass2 extends Whatever
+    MyClass1 getMethod1( int $id );
+</pre>
+        <h2>In short</h2>
+        <ul>
+            <li>50% of the weight is that you are a ninja at what you claim you are.</li>
+            <li>50% of the weight is that you write code for your team, not for you.</li>
+        </ul>
+        <p>
+        If you hear silence... we do too. <b>Please speak!</b> we want to hear your mind, not your silence.
+        </p>
+    
+
+</body></html>

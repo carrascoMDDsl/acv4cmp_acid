@@ -469,7 +469,7 @@ sudo apt-get install vim
 
 
 # Editing file
-#    /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet
+#    /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet/config.yaml
 #       As seen in the third (non blank) line of Vagrantfile
 #       configValues = YAML.load_file("#{dir}/puphpet/config.yaml")
 
@@ -613,10 +613,7 @@ vagrant provision
 
 
 # Editing file
-#    /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet
-#       As seen in the third (non blank) line of Vagrantfile
-#       configValues = YAML.load_file("#{dir}/puphpet/config.yaml")
-
+#    /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet/config.yaml
 # Change line
 #      xhprof:
 #          install: '1'
@@ -695,4 +692,68 @@ vagrant provision
 # ###################################################################
 
 # Now sending to github
+# committed and pushed
+
+# ###################################################################
+
+
+# I configured the host shared directory to an absolute path outside
+# of the git repository.
+# Must fix,
+# setting up the shared directory in the host
+# to be a sub-directory of the git repository content,
+# such that upon git clone and vagrant up
+# there shall be web content in the guest
+# under /var/www/themepark
+
+
+
+# Keep a copy of
+#   /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet/config.yaml
+# as
+#   /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet/config.yaml_ORIG
+
+# Save also a copy
+cp Vagrantfile Vagrantfile_beforeRelativeShare
+#
+
+# Modify
+#    /home/acv/Works/MDD/CMProductions/gits/acv4cmp_acid/puphpet/config.yaml
+#
+# vagrantfile-local:
+#     vm:
+#         :synced_folder
+#             source: /home/acv/Works/MDD/CMProductions/acid/acid_share
+#
+# to just
+#             source: acid_share
+#
+# And modify
+#   Vagrantfile
+#  data['vm']['synced_folder'].each do |i, folder|
+#    if folder['source'] != '' && folder['target'] != '' && folder['id'] != ''
+#      nfs = (folder['nfs'] == "true") ? "nfs" : nil
+#      config.vm.synced_folder "#{folder['source']}", "#{folder['target']}", id: "#{folder['id']}", type: nfs
+#    end
+#  end
+# To prepend
+#   "#{dir}
+# to the source parameter of the synced_folder
+
+
+
+# Destroy VM
+vagrant destroy
+
+# And provision again
+
+# Will it work the trick for relative shared source ?
+
+
+# ###################################################################
+
+# TIMESTAMP
+# 201403190252
+# ###################################################################
+
 

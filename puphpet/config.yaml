@@ -25,7 +25,7 @@ vagrantfile-local:
         synced_folder:
             eXb5rC12C1ED:
                 id: vagrant-root
-                source: /home/acv/Works/MDD/CMProductions/acid/acid_share
+                source: acid_share
                 target: /var/www
                 nfs: 'false'
         usable_port_range: 2200..2250

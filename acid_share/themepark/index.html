@@ -1,0 +1,1559 @@
+<!DOCTYPE HTML>
+
+<!--
+* index.html
+*
+* Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+*
+* Copyright 2014 by the Author of this code Antonio Carrasco Valero
+* 03/11/2014
+-->
+
+<html lang="en" ng-app="cmpinterviewjs"  xmlns:ng="http://angularjs.org" id="ng-app"  >
+	<head>
+		<meta charset="utf-8">
+
+        <title>ACV for CM Productions - skill evaluation exercises</title>
+
+        <!-- BEGIN ACV ng-specific -->
+        <meta name="viewport" content="width=device-width">   <!-- user-scalable=no -->
+        <!--[if lte IE 8]>
+        <script>
+            document.createElement('ng-include');
+            document.createElement('ng-pluralize');
+            document.createElement('ng-view');
+            document.createElement('x-ng-include');
+            document.createElement('x-ng-pluralize');
+            document.createElement('x-ng-view');
+
+            // Optionally these for CSS
+            document.createElement('ng:include');
+            document.createElement('ng:pluralize');
+            document.createElement('ng:view');
+
+
+        </script>
+        <![endif]-->
+        <!-- END ACV ng-specific -->
+
+
+
+        <!-- BEGIN ACV Application specific -->
+        <link rel="stylesheet" href="css/app.css">
+        <!-- END ACV Application specific -->
+
+        <link rel="stylesheet" type="text/css" href="lib/angular-ui-ng-grid/ng-grid.css" />
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" href="lib/angular-strap/vendor/bootstrap-datepicker.css" >
+
+        <link rel="stylesheet" href="lib/codemirror-3.22/lib/codemirror.css" >
+        <link rel="stylesheet" href="lib/codemirror-3.22/theme/eclipse.css" >
+
+
+        <!-- BEGIN ACV Application specific -->
+        <link rel="stylesheet" href="css/SeaWorld.css">
+        <!-- END ACV Application specific -->
+
+
+
+        <!-- BEGIN ACV Third party -->
+        <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-ui/1.9.2/jquery-ui.min.js"></script>
+
+        <script src="lib/codemirror-3.22/lib/codemirror.js"></script>
+        <script src="lib/codemirror-3.22/mode/javascript/javascript.js"></script>
+        <script src="lib/codemirror-3.22/mode/xml/xml.js"></script>
+
+
+
+        <!-- ACV OJO 20141012
+         Loading many  of the .js for angular I´ve been using lately,
+         so that they appear in the Sources downloaded with the page,
+         to show the curious about how rich
+         this angular resource may get,
+         eventually, if not minimizing and/or using Asynchronous Module Definition (AMD).
+
+          It is recommended to use RequireJS,
+          at least until browsers implement natively the upcoming ECMAscript standard for modularization.
+
+          Left for a future exercise.
+
+        -->
+
+        <script type="text/javascript" src="lib/angular/angular.js"></script>
+        <script type="text/javascript" src="lib/angular/angular-animate.js"></script>
+        <script type="text/javascript" src="lib/angular/i18n/angular-locale_en-us.js"></script>
+        <script type="text/javascript" src="lib/angular/angular-resource.js"></script>
+        <script type="text/javascript" src="lib/angular/angular-route.js"></script>
+        <script type="text/javascript" src="lib/angular-strap/dist/angular-strap.js"></script>
+        <script type="text/javascript" src="lib/angular-strap/vendor/bootstrap-datepicker.js"></script>
+
+        <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+
+        <script type="text/javascript" src="lib/angular-ui-ng-grid/ng-grid-2.0.7.debug.js"></script>
+        <script type="text/javascript" src="lib/angular-ui-ng-grid/ng-grid-flexible-height.js"></script>
+        <script type="text/javascript" src="lib/angular-ui-ng-grid/ng-grid-reorderable.js"></script>
+
+        <script type="text/javascript" src="lib/angularjs-mongolab-promise/mongolabResourceHttp.js"></script>
+        <script type="text/javascript" src="lib/notification-widget/notificationWidget.js"></script>
+
+        <script src="lib/kinetic/kinetic-ng-v5.0.1.js"></script>
+
+        <script src="lib/ui-codemirror/ui-codemirror.js"></script>
+
+        <!-- END ACV Third party -->
+
+
+
+
+        <!-- BEGIN ACV Application specific -->
+
+        <script src="js/shortestpath/shortestpath_services.js"></script>
+
+        <script src="js/map/mapcanvas_services.js"></script>
+        <script src="js/map/updatemap_reusable_controllers.js"></script>
+
+        <script src="js/highlightrecommendation/highlightrecommendation_services.js"></script>
+
+        <script src="js/waittimes/waittimes_services.js"></script>
+
+        <script type="text/javascript" src="js/app.js"></script>
+
+        <script src="js/waittimes/WaitTimes_controllers.js"></script>
+        <script src="js/waittimes/WaitTimes_canvas.js"></script>
+
+        <script src="js/diagrams/diagrams_controllers.js"></script>
+        <script src="js/programs/programs_controllers.js"></script>
+
+        <script src="js/brackets/brackets_services.js"></script>
+        <script src="js/brackets/brackets_controllers.js"></script>
+
+        <script src="js/objects/ParksModel_services.js"></script>
+        <script src="js/objects/ParkPaths_services.js"></script>
+
+        <script src="js/tabs_services.js"></script>
+
+        <script src="js/objects/objects_controllers.js"></script>
+
+        <script type="text/javascript" src="js/directives.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
+
+        <script src="js/recommendation/Recommendation_controllers.js"></script>
+        <script src="js/recommendation/Recommendation_canvas.js"></script>
+
+
+        <!-- END ACV Application specific -->
+
+
+
+    </head>
+	<body>
+
+
+
+
+        <!-- BEGIN common templates
+        Added here, rather than in partials/
+        to avoid Chrome XHR cross-domain error when running from local file-system.
+        And, well, we have just three short templates right now.
+        -->
+        <div style="display: none">
+
+
+
+            <script type="text/ng-template" id="partials/welcome.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Welcome to Sea World!</h3>
+                        <br/>
+
+                        <legend>You may find here resources for a more pleasurable enjoyment of our Theme Parks:</legend>
+                        <ul>
+                            <li><strong>Sea World</strong> in Orlando (FL).</li>
+                            <li><strong>others ...</strong> in U.S.A.</li>
+                            <li><strong>others ...</strong> in Europe</li>
+                        </ul>
+                        <br/>
+                        <legend>
+                            Please visit Sea World's <a href="#/map"><strong>Wait-time map</strong></a>
+                            to improve the scheduling of your guest experience.
+                        </legend>
+                        <br/>
+
+                        <legend>You may follow now our <a href="#/recommendation"><strong>Recommendation</strong></a>
+                            for the soonest available attraction from your current location and walking speed.
+                        </legend>
+                        <br/>
+
+
+                        <legend>You may read about web browser <a href="#/compatibility"><strong>Compatibility</strong></a>.</legend>
+                        <br/>
+
+                        <legend>Also included technical resources on the solution, and other information technology experiments:</legend>
+                        <ul>
+                            <li>
+                                <legend>
+                                    <a href="#/diagrams"><strong>Diagrams</strong></a>
+                                    in the Unified Modelling Language standard used by computer engineers to describe the program behind this web page.
+                                </legend>
+                            </li>
+                            <li>
+                                <legend>
+                                    <a href="#/programs"><strong>Programs</strong></a>
+                                    source code in HTML and Javascript languages, selected from the ones comprising this web page,and other experiments.
+                                </legend>
+                            </li>
+                            <li>
+                                <legend>
+                                    <a href="#/objects"><strong>Objects</strong></a>
+                                    representing the Attractions, Crossings and Roads in the Parks, corresponding to the Object Model Diagram.
+                                </legend>
+                            </li>
+                            <li>
+                                <legend>
+                                    <a href="#/brackets"><strong>Brackets</strong></a>
+                                    a simple Javascript coding experiment.
+                                </legend>
+                            </li>
+                            <li>
+                                <legend>
+                                    <a href="#/technologies"><strong>Technologies</strong></a>
+                                    utilized in this exercise.
+                                </legend>
+                            </li>
+                        </ul>
+                        <br/>
+
+                        <legend>
+                            You may find information about this Author in the
+                            <a href="#/credits"><strong>Credits</strong></a> section.
+                        </legend>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/credits.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+
+                        <h3>Authored by Antonio Carrasco Valero</h3>
+                        <br/>
+
+                        <legend>carrasco4CMP (at) ModelDD.org</legend>
+                        <br/>
+
+                        <legend>
+                            For the purpose of the evaluation by CM Productions,
+                            of Antonio Carrasco Valero's skills and performance,
+                            as part of CM Productions selection process towars a permanent hire.
+                        </legend>
+                        <br/>
+
+                        <h4>The author, looking forward to the pleasure of meeting with you</h4>
+                        <img src="Author/carrasco.jpg">
+                        <br/>
+                        <br/>
+
+                        <h4>You may review a <a href="Author/ACV-Letter-Summary-201401.pdf" target="_blank">
+                            Presentation letter and Summary C.V. &emsp;<small>ACV-Letter-Summary-201401.pdf</small></a>
+                        </h4>
+                        <br/>
+
+                        <h4>Also available, an extended <a href="Author/carrascoMDD-EUROpass-201312.pdf" target="_blank">
+                            C.V. in EuroPass format  &emsp;<small>carrascoMDD-EUROpass-201312.pdf</small></a>
+                        </h4>
+                        <br/>
+
+                        <h4>You may review some recommendation letters from
+                            <a href="http://www.modeldd.org/contents/credits/credits-main-author-antonio-carrasco-valero/ACV_Recommendations_Letters.pdf" target="_blank">
+                                International engagements
+                            </a>
+                            and others
+                            <a href="http://www.modeldd.org/contents/credits/credits-main-author-antonio-carrasco-valero/ACV_Cartas_Recomendacion_Spain.pdf" target="_blank">
+                                in Spanish
+                            </a>
+                        </h4>
+                        <legend>Recent references available.</legend>
+                        <br/>
+
+                        <h4>Additional resources at <a href="http://www.modeldd.org/curriculum-resources-list" target="_blank">www.modeldd.org</a></h4>
+                        <br/>
+
+                        <h4><a href="https://www.linkedin.com/in/modeldrivendevelopment" target="_blank">Linked-in profile</a></h4>
+
+                        <h4><a href="https://www.infojobs.net/antonio-carrasco-valero.prf" target="_blank">Infojobs profile</a></h4>
+
+                        <h4><a href="http://www.tecnoempleo.com/antonio-carrasco-valero.mpt" target="_blank">Tecnoempleo profile</a></h4>
+
+
+                        <hr/>
+                        <br/>
+
+                        <h4>The Author has been operating internationally as a Sole-Trader, and thru his Limited Liability Corporation</h4>
+                        <br/>
+                        <img src="Author/logo.png">
+                        <br/>
+                        <br/>
+
+                        <legend>
+                            The brand is a reflection of the Author's support to initatives towards predictable development processes,
+                            and the Author's pride in his achievements and contributions
+                            to world-wide adopted standards for Modeling architectures and software development automation.
+                        </legend>
+                        <br/>
+                        <hr/>
+                        <br/>
+
+                        <h4>Author's contributions to standards</h4>
+                        <br/>
+
+                        <h5>With the Object Management Group (OMG)
+                            <a href="http://www.omg.org/spec/#ISO" target="_blank"><strong>ISO-adopted</strong></a>
+                            and
+                            <a href="http://www.omg.org/spec/#M&M" target="_blank"><strong>modeling and metadata</strong></a>
+                        </h5>
+                        <ul>
+                            <li>
+                                Co-develop the Proof of Concept modeling tools for the first
+                                <a href="http://www.omg.org/spec/UML" target="_blank">
+                                    <strong>Unified Modeling Language (UML™)</strong>
+                                </a>
+                                <br/>
+                                Versions 1.x of the standard, with mention to the Employer of this Author, Reich Technologies Inc.,
+                                in the Copyright and Contributors sections of the 1.x versions.
+                                <br/>
+                                Note that UML is releasing since 2005 post 1.x versions (2.x), a fully rewritten body of work,
+                                where the Reich Technologies Copyright is no longer acknowledged.
+                            </li>
+                            <li>
+                                Co-develop the Proof of Concept and first industrial implementation of
+                                <a href="http://www.omg.org/spec/OCL/" target="_blank"><strong>
+                                    Object Constraint Language (OCL)</strong>
+                                </a>
+                                <br/>
+                                Same as above.
+                            </li>
+
+                            <li>
+                                Co-author the
+                                <a href="http://www.omg.org/spec/EDOC/" target="_blank">
+                                    <strong>UML™ Profile for Enterprise Distributed Object Computing (EDOC)</strong>
+                                </a>
+                                <br/>
+                                With mention to the Employer and USA INS visa Sponsor of this Author, Data Access Technologies Inc.,
+                                in the Copyright and Acknowledgments sections.
+                                <br/>
+                                Some of the core ideas of this standard where later incorporated as key constructs in the 2.x versions of UML .
+                            </li>
+                            <li>
+                                Co-author the
+                                <a href="http://www.omg.org/spec/EAI/" target="_blank">
+                                    <strong>UML™ Profile for Event-based Architectures in Enterprise Application Integration (EAI)</strong>
+                                </a>
+                                <br/>
+                                With mention to the Employer and USA INS visa Sponsor of this Author,
+                                Data Access Technologies Inc., in the Acknowledgments section.
+                            </li>
+                        </ul>
+                        <br/>
+
+                        <h5>With the United Nations Centre for Trade Facilitation and Electronic Business (UN/CEFACT)</h5>
+                        <ul>
+                            <li>
+                                Co-author the
+                                <a href="http://www.ebxml.org/specs/ebBPSS_print.pdf" target="_blank">
+                                    <strong>electronic business XML Business Process Specification Schema (ebXML BPSS)</strong>
+                                </a>
+                                <br/>
+                                With personal mention to this Author in the Contributors section,
+                                and mention to the Employer and USA INS visa Sponsor of this Author,
+                                Data Access Technologies Inc. in the Editors Section.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/objects.html">
+
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Sample Parks Home objects instance network</h3>
+                        <br/>
+                        <legend>
+                            A root ParksHome with one or more Parks, each with a number of Attractions, Crossings and Roads
+                        </legend>
+                        <br/>
+
+                        <p>
+                            Latitudes and Longitudes shall be expressed in coordinates with respect to the Geodetic Datum of the Park.
+                            <br/>
+                            The "Sea World" example park object network contains coordinates expressed in pixel values,
+                            relative to the extent of the background image map for the park.
+                            <br/>
+                            Distances between Attraction and/or Crossing end points of each Road shall be computed
+                            as the distance between geodetic coordinates.
+                            <br/>
+                            Because the "Sea World" example coordinates are actually supplied in pixels,
+                            the computed distances for the length of Roads result in magnitudes
+                            relative to the extent of the  background image map for the park.
+                            <br/>
+                            The Author apologizes for displaying as latitude and longitude º (degrees),
+                            magnitudes which can not be interpreted as geodetic coordinates.
+                            <br/>
+                            Conversion to geodetic coordinates is left for a future exercise.
+                        </p>
+
+
+                        <div>
+                            <h3>Parks</h3>
+                            <div x-ng-repeat="aPark in objectsCtrl.parksHome.parks()">
+
+                                <h4>Park {{aPark.parkName()}}</h4>
+                                <h5>Geodetic Datum {{aPark.datumName()}}</h5>
+                                <br/>
+
+
+
+
+                                <div class="MDD_TabsBar" id="MDD_tabsObjects_Bar">
+                                    <div  x-ng-repeat="aTabsBarEntry in objectsCtrl.tabs.tabsObjectsBarEntries"
+                                          x-ng-class="objectsCtrl.tabs.fTabObjectsClass( aTabsBarEntry.value)"
+                                          x-ng-click="objectsCtrl.tabs.pSelectTabObjects( aTabsBarEntry.value)">
+                                        {{aTabsBarEntry.label}}
+                                    </div>
+                                </div>
+
+
+
+                                <div class="MDD_TabContent" id="MDD_tabsObjects_Attractions"
+                                     x-ng-show="objectsCtrl.tabs.tabsFixedObjects[ 'Attractions'] || ( objectsCtrl.tabs.selectedTabObjects == 'Attractions')" >
+
+                                    <div class="M10_PinnedDiv" >
+                                        <h4>
+                                            <img src="img/pinned.gif" style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.tabsFixedObjects[ 'Attractions']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Attractions')">
+                                            <img src="img/unpinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="!objectsCtrl.tabs.tabsFixedObjects[ 'Attractions']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Attractions')">
+                                            <img src="img/arrow-up-double-2-16x16.png"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.fMayNeedToScrollTabObjectsIntoView( 'Attractions')"
+                                                 x-ng-click="objectsCtrl.tabs.pScrollTabObjectsBarIntoView( 'Attractions')">
+                                            <img src="img/blank-16x16.png">
+                                            Attractions
+                                        </h4>
+                                    </div>
+                                    <br/>
+
+
+                                    <table cellpadding="4" cellspacing="2" border="1px">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Lat º</th>
+                                            <th>Lon º</th>
+                                            <th>is ride?</th>
+                                            <th>Roads</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr x-ng-repeat="anAttraction in aPark.attractions()">
+                                            <td>{{anAttraction.domainType()}}</td>
+                                            <td>{{anAttraction.attractionName()}}</td>
+                                            <td align="right">{{anAttraction.latitude()}}</td>
+                                            <td align="right">{{anAttraction.longitude()}}</td>
+                                            <td align="center">{{anAttraction.isRide() ? 'Ride' : ''}}</td>
+                                            <td>
+                                                <table cellpadding="4" cellspacing="2" border="0px" width="100%">
+                                                    <tbody>
+                                                    <tr x-ng-repeat="aRoad in anAttraction.roads()">
+                                                        <td>{{aRoad.roadName()}}</td>
+                                                        <td align="right">{{aRoad.roadLength() | number:0}} m</td>
+                                                        <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( anAttraction))">
+                                                            {{aRoad.otherPlace( anAttraction).domainType()}}
+                                                        </td>
+                                                        <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( anAttraction))">
+                                                            {{aRoad.otherPlace( anAttraction).placeName()}}
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( anAttraction))">
+                                                            {{aRoad.otherPlace( anAttraction).latitude()}} º
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( anAttraction))">
+                                                            {{aRoad.otherPlace( anAttraction).longitude()}} º
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( anAttraction))">
+                                                            {{(( aRoad.otherPlace( anAttraction).domainType() == 'Attraction') && aRoad.otherPlace( anAttraction).isRide()) ? 'Ride' : ''}}
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <br/>
+                                </div>
+
+
+
+
+
+                                <div class="MDD_TabContent" id="MDD_tabsObjects_Crossings"
+                                     x-ng-show="objectsCtrl.tabs.tabsFixedObjects[ 'Crossings'] || ( objectsCtrl.tabs.selectedTabObjects == 'Crossings')" >
+
+                                    <div class="M10_PinnedDiv" >
+                                        <h4>
+                                            <img src="img/pinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.tabsFixedObjects[ 'Crossings']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Crossings')">
+                                            <img src="img/unpinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="!objectsCtrl.tabs.tabsFixedObjects[ 'Crossings']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Crossings')">
+                                            <img src="img/arrow-up-double-2-16x16.png"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.fMayNeedToScrollTabObjectsIntoView( 'Crossings')"
+                                                 x-ng-click="objectsCtrl.tabs.pScrollTabObjectsBarIntoView( 'Crossings')">
+                                            <img src="img/blank-16x16.png">
+                                            Crossings
+                                        </h4>
+                                    </div>
+                                    <br/>
+
+                                    <table cellpadding="4" cellspacing="2" border="1px">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Lat º</th>
+                                            <th>Lon º</th>
+                                            <th>Roads</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr x-ng-repeat="aCrossing in aPark.crossings()">
+                                            <td>{{aCrossing.domainType()}}</td>
+                                            <td>{{aCrossing.crossingName()}}</td>
+                                            <td align="right">{{aCrossing.latitude()}}</td>
+                                            <td align="right">{{aCrossing.longitude()}}</td>
+                                            <td>
+                                                <table cellpadding="4" cellspacing="2" border="0px" width="100%">
+                                                    <tbody>
+                                                    <tr x-ng-repeat="aRoad in aCrossing.roads()">
+                                                        <td>{{aRoad.roadName()}}</td>
+                                                        <td align="right">{{aRoad.roadLength() | number:0}} m</td>
+                                                        <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( aCrossing))">
+                                                            {{aRoad.otherPlace( aCrossing).domainType()}}
+                                                        </td>
+                                                        <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( aCrossing))">
+                                                            {{aRoad.otherPlace( aCrossing).placeName()}}
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( aCrossing))">
+                                                            {{aRoad.otherPlace( aCrossing).latitude()}} º
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( aCrossing))">
+                                                            {{aRoad.otherPlace( aCrossing).longitude()}} º
+                                                        </td>
+                                                        <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.otherPlace( aCrossing))">
+                                                            {{(( aRoad.otherPlace( aCrossing).domainType() == 'Attraction') && aRoad.otherPlace( aCrossing).isRide()) ? 'Ride' : ''}}
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <br/>
+                                </div>
+
+
+
+
+                                <div class="MDD_TabContent"  id="MDD_tabsObjects_Roads"
+                                     x-ng-show="objectsCtrl.tabs.tabsFixedObjects[ 'Roads'] || ( objectsCtrl.tabs.selectedTabObjects == 'Roads')" >
+
+                                    <div class="M10_PinnedDiv" >
+                                        <h4>
+                                            <img src="img/pinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.tabsFixedObjects[ 'Roads']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Roads')">
+                                            <img src="img/unpinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="!objectsCtrl.tabs.tabsFixedObjects[ 'Roads']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Roads')">
+                                            <img src="img/arrow-up-double-2-16x16.png"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.fMayNeedToScrollTabObjectsIntoView( 'Roads')"
+                                                 x-ng-click="objectsCtrl.tabs.pScrollTabObjectsBarIntoView( 'Roads')">
+                                            <img src="img/blank-16x16.png">
+                                            Roads
+                                        </h4>
+                                    </div>
+                                    <br/>
+
+                                    <table cellpadding="4" cellspacing="2" border="1px">
+                                        <thead>
+                                        <tr>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Length</th>
+                                            <th>One Type</th>
+                                            <th>One Name</th>
+                                            <th>Lat º</th>
+                                            <th>Lon º</th>
+                                            <th>is ride?</th>
+                                            <th>Other Type</th>
+                                            <th>Other Name</th>
+                                            <th>Lat º</th>
+                                            <th>Lon º</th>
+                                            <th>is ride?</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr x-ng-repeat="aRoad in aPark.roads()">
+                                            <td>{{aRoad.domainType()}}</td>
+                                            <td>{{aRoad.roadName()}}</td>
+                                            <td align="right" >{{aRoad.roadLength() | number:0}} m</td>
+
+                                            <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[0])">{{aRoad.places()[0].domainType()}}</td>
+                                            <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[0])">{{aRoad.places()[0].placeName()}}</td>
+                                            <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[0])">{{aRoad.places()[0].latitude()}} º</td>
+                                            <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[0])">{{aRoad.places()[0].longitude()}} º</td>
+                                            <td align="center" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[0])">
+                                                {{(( aRoad.places()[0].domainType() == 'Attraction') && aRoad.places()[0].isRide()) ? 'Ride' : ''}}
+                                            </td>
+
+                                            <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[1])">{{aRoad.places()[1].domainType()}}</td>
+                                            <td x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[1])">{{aRoad.places()[1].placeName()}}</td>
+                                            <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[1])">{{aRoad.places()[1].latitude()}} º</td>
+                                            <td align="right" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[1])">{{aRoad.places()[1].longitude()}} º</td>
+                                            <td align="center" x-ng-class="objectsCtrl.fCSSclassNameFor( aRoad.places()[1])">
+                                                {{(( aRoad.places()[1].domainType() == 'Attraction') && aRoad.places()[1].isRide()) ? 'Ride' : ''}}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <br/>
+                                </div>
+
+
+
+
+
+                                <div class="MDD_TabContent"
+                                     x-ng-show="objectsCtrl.tabs.tabsFixedObjects[ 'Paths'] || ( objectsCtrl.tabs.selectedTabObjects == 'Paths')" id="MDD_tabsObjects_Paths">
+
+                                    <div class="M10_PinnedDiv" >
+                                        <h4>
+                                            <img src="img/pinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.tabsFixedObjects[ 'Paths']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Paths')">
+                                            <img src="img/unpinned.gif"  style="cursor: pointer"
+                                                 x-ng-if="!objectsCtrl.tabs.tabsFixedObjects[ 'Paths']"
+                                                 x-ng-click="objectsCtrl.tabs.pToggleTabsFixedObjects('Paths')">
+                                            <img src="img/arrow-up-double-2-16x16.png"  style="cursor: pointer"
+                                                 x-ng-if="objectsCtrl.tabs.fMayNeedToScrollTabObjectsIntoView( 'Paths')"
+                                                 x-ng-click="objectsCtrl.tabs.pScrollTabObjectsBarIntoView( 'Paths')">
+                                            <img src="img/blank-16x16.png">
+                                            Paths
+                                        </h4>
+                                    </div>
+                                    <br/>
+
+
+                                    <strong>Origin Attraction</strong>
+                                    &nbsp;
+                                    <select style="width: 260px"
+                                            name="theSelectedPathsStart"
+                                            x-ng-change="objectsCtrl.selectedPathsStartChangedHandler()"
+                                            x-ng-model="objectsCtrl.selectedPathsStart"
+                                            x-ng-options="anAttraction as anAttraction.attractionName() + ' at lat. ' + anAttraction.latitude() + 'º  lon. '  + anAttraction.longitude() + 'º' + ( ( anAttraction.isRide() && ' Ride') || '') for anAttraction in aPark.attractions()"
+                                            popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                            popover="Attractions to select as origin of a path to walk">
+                                        <option value="">-- Select Attraction as origin for a path to a destination Attraction--</option>
+                                    </select>
+                                    <br/>
+
+
+
+
+                                    <div x-ng-if="objectsCtrl.selectedPathsStart" >
+                                        <h5>
+                                            <select style="width: 160px; height: 24px; font-size: 12px;"
+                                                    name="theSelectedPathsOrder"
+                                                    x-ng-change="objectsCtrl.selectedPathsOrderChangedHandler()"
+                                                    x-ng-model="objectsCtrl.selectedPathsOrder"
+                                                    x-ng-options="anOrder.value as anOrder.label for anOrder in objectsCtrl.PATHSORDER_OPTIONS"
+                                                    popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                                    popover="Select the order in which you want to see the Paths to other Attractions.">
+                                            </select>
+                                            &ensp;
+                                            Paths starting from Attracion
+                                            {{objectsCtrl.selectedPathsStart.attractionName() + ' at lat. ' + objectsCtrl.selectedPathsStart.latitude() + 'º  lon. '  + objectsCtrl.selectedPathsStart.longitude() + 'º' + ( ( objectsCtrl.selectedPathsStart.isRide() && ' Ride') || '')}}
+                                        </h5>
+                                        <br/>
+
+
+                                        <table cellpadding="4" cellspacing="2" border="1px">
+                                            <thead>
+                                            <tr>
+                                                <th>to Attraction</th>
+                                                <th>Latitude º</th>
+                                                <th>Longitude º</th>
+                                                <th>is ride?</th>
+                                                <th>Length</th>
+                                                <th>Steps</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr x-ng-repeat="anAttractionAndSteps in objectsCtrl.pathsFromAttraction">
+                                                <td>{{anAttractionAndSteps.attraction.attractionName()}}</td>
+                                                <td align="right">{{anAttractionAndSteps.attraction.latitude()}} º</td>
+                                                <td align="right">{{anAttractionAndSteps.attraction.longitude()}} º</td>
+                                                <td align="center">{{anAttractionAndSteps.attraction.isRide() ? 'Ride' : ''}}</td>
+                                                <td align="right">{{anAttractionAndSteps.totalLength | number:0}} m</td>
+                                                <td>
+                                                    <table cellpadding="2" cellspacing="2" border="0px" style="width: 100%">
+                                                        <tbody x-ng-repeat="aStep in anAttractionAndSteps.steps.slice(1, -1)">
+                                                        <tr x-ng-if="aStep.domainType() == 'Attraction'" x-ng-class="objectsCtrl.fCSSclassNameFor( aStep)">
+                                                            <td>{{aStep.domainType()}}</td>
+                                                            <td>{{aStep.placeName()}}</td>
+                                                            <td align="right">{{aStep.latitude()}} º</td>
+                                                            <td align="right">{{aStep.longitude()}} º</td>
+                                                            <td align="center">{{(aStep.isRide() && 'Ride') || ''}}</td>
+                                                        </tr>
+                                                        <tr x-ng-if="aStep.domainType() == 'Crossing'" class="CMP_Crossing">
+                                                            <td>{{aStep.domainType()}}</td>
+                                                            <td>{{aStep.placeName()}}</td>
+                                                            <td align="right">{{aStep.latitude()}} º</td>
+                                                            <td align="right">{{aStep.longitude()}} º</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr x-ng-if="aStep.domainType() == 'Road'" >
+                                                            <td>{{aStep.domainType()}}</td>
+                                                            <td>{{aStep.roadName()}}</td>
+                                                            <td align="right">{{aStep.roadLength() | number:0}} m</td>
+                                                            <td colspan="2"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br/>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/map.html">
+
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Please notice in the map the Wait-times to each of our main attractions, updated in real-time</h3>
+
+                        <strong>Refresh every</strong>
+                        &nbsp;
+
+                        <input name="theMillisecondsInput" class="Milliseconds_Input"
+                               type="text"
+                               numeric
+                               decimal-places="0" min-numeric="{{waitTimesCtrl.MILLISECONDS_MIN}}" max-numeric="{{waitTimesCtrl.MILLISECONDS_MAX}}"
+                               x-ng-model="waitTimesCtrl.milliseconds"
+                               x-ng-change="waitTimesCtrl.millisecondsChangedHandler()"
+                               popover-animation="false" popover-trigger="focus" popover-placement="top"
+                               popover="Enter the interval to refresh the Wait-times, in milliseconds, between 100 and 60000">&nbsp;<strong>milliseconds</strong>
+                        &emsp;
+
+                        <input name="theMillisecondsSlider" class="Milliseconds_Slider"
+                            type="range"
+                            min="{{waitTimesCtrl.MILLISECONDS_MIN}}"
+                            max="{{waitTimesCtrl.MILLISECONDS_MAX}}"
+                            step="{{waitTimesCtrl.MILLISECONDS_STEP}}"
+                            x-ng-model="waitTimesCtrl.millisecondsSlider"
+                            x-ng-change="waitTimesCtrl.millisecondsRangeChangedHandler()"
+                            popover-animation="false" popover-trigger="focus" popover-placement="top"
+                            popover="Slide to set the interval to refresh the Wait-times, in milliseconds, between 100 and 60000">
+                        <br/>
+
+
+                        <div id="seaworld-container" class="MapContainer">
+                            <div id="seaworld-map"  class="MapMap"></div>
+                            <div id="seaworld-canvas"  class="MapCanvas"></div>
+                        </div>
+
+                        <div x-ng-controller="WaitTimesCanvasCtrl" x-ng-init="waitTimesCanvas.pInitCanvas( 'seaworld-canvas')"></div>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/recommendation.html">
+
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Attraction that you can enjoy the soonest !</h3>
+                        <br/>
+                        <h4>Walking at your own speed from your current location</h4>
+                        <br/>
+
+                        <legend>
+                            Selected from your distance to the Attraction, your preferred walking speed
+                            and the Wait-time on each Attraction at the current moment.
+                        </legend>
+                        <br/>
+
+                        <strong>Refresh every</strong>
+                        &nbsp;
+
+                        <input name="theMillisecondsInput" class="Milliseconds_Input"
+                               type="text"
+                               numeric
+                               decimal-places="0"
+                               min-numeric="{{recommendationCtrl.MILLISECONDS_MIN}}"
+                               max-numeric="{{recommendationCtrl.MILLISECONDS_MAX}}"
+                               x-ng-model="recommendationCtrl.milliseconds"
+                               x-ng-change="recommendationCtrl.millisecondsChangedHandler()"
+                               popover-animation="false" popover-trigger="focus" popover-placement="top"
+                               popover="Enter the interval to update the Recommendation, in milliseconds, between 100 and 60000">&nbsp;<strong>milliseconds</strong>
+                        &emsp;
+
+                        <input name="theMillisecondsSlider" class="Milliseconds_Slider"
+                               type="range"
+                               min="{{recommendationCtrl.MILLISECONDS_MIN}}"
+                               max="{{recommendationCtrl.MILLISECONDS_MAX}}"
+                               step="{{recommendationCtrl.MILLISECONDS_STEP}}"
+                               x-ng-model="recommendationCtrl.millisecondsSlider"
+                               x-ng-change="recommendationCtrl.millisecondsRangeChangedHandler()"
+                               popover-animation="false" popover-trigger="focus" popover-placement="top"
+                               popover="Slide to set the interval update the the Recommendation, in milliseconds, between 100 and 60000">
+                        <br/>
+                        <br/>
+
+                        <strong>Your current Attraction location</strong>
+                        &nbsp;
+                        <select style="width: 300px"
+                                name="theSelectedCurrentAttraction"
+                                x-ng-change="recommendationCtrl.currentAttractionChangedHandler()"
+                                x-ng-model="recommendationCtrl.currentAttraction"
+                                x-ng-options="anAttraction as anAttraction.attractionName() + ' at lat. ' + anAttraction.latitude() + 'º  lon. '  + anAttraction.longitude() + 'º' + ( ( anAttraction.isRide() && ' Ride') || '') for anAttraction in recommendationCtrl.park.attractions()"
+                                popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                popover="The Attraction where you stand at this moment">
+                            <option value="">-- Select the Attraction where you are now --</option>
+                        </select>
+                        &emsp;
+
+
+                        <strong>Your Walking pace</strong>
+                        &nbsp;
+                        <select style="width: 200px"
+                                name="theSelectedWalkingPage"
+                                x-ng-change="recommendationCtrl.walkingSpeedChangedHandler()"
+                                x-ng-model="recommendationCtrl.walkingSpeed"
+                                x-ng-options="aWalkingSpeed.value as aWalkingSpeed.label for aWalkingSpeed in recommendationCtrl.WALKINGSPEED_OPTIONS"
+                                popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                popover="The speed at which you want or are able to walk from your current attraction, so we can recommend to you an Attraction minimizing your wait-time.">
+                            <option value="">-- Select your walking speed --</option>
+                        </select>
+                        <br/>
+
+                        <div id="recommendation-container" class="MapContainer">
+                            <div id="recommendation-map"  class="MapMap"></div>
+                            <div id="recommendation-canvas"  class="MapCanvas"></div>
+                            <svg id="highlightpath_svg_id" xmlns="http://www.w3.org/2000/svg"  class="HighlightPathSVG"></svg>
+                        </div>
+
+
+                        <div x-ng-controller="RecommendationCanvasCtrl" x-ng-init="recommendationCanvas.pInitCanvas( 'recommendation-canvas')"></div>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+            <script type="text/ng-template" id="partials/brackets.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+
+                        <h3>Brackets balance checker</h3>
+                        <br/>
+                        <legend>
+                            Please, type a string with bracket-like characters <strong> &emsp;(&nbsp;) &emsp; [&nbsp;]  &emsp; {&nbsp;}</strong>.
+                            <br/>
+                            <br/>
+                            The first bracket-like character in the string shall be considered as the one to be balanced.
+                            <br/>
+                            The system shall inform the User whether the appearances of the character are balanced in the string.
+                            <br/>
+                            The characters are balanced if all closing brackets match a corresponding opening bracket, and no open bracket remains un-closed.
+                        </legend>
+                        <br/>
+
+
+                        <input style="width: 440px"
+                               name="theStringsWithBrackets"
+                               type="text"
+                               x-ng-model="brackets.toBalanceCheck"
+                               x-ng-change="brackets.toBalanceCheckChangedHandler()"
+                               placeholder="( a ( b ( c ( d e f  ) g ) h) i)"
+                               popover-animation="false" popover-trigger="focus" popover-placement="right"
+                               popover="Please, type a string with bracket-like characters () [] {} and other characters at will. You will be informed about whether the brackets are balanced in the typed string." >
+
+                        <div x-ng-if="brackets.toBalanceCheck && brackets.unBalancedPosition < 0">
+                            Brackets are correctly Balanced
+                        </div>
+
+                        <div x-ng-if="brackets.toBalanceCheck && ( brackets.unBalancedPosition >= 0)">
+                            <p>
+                                Un-Balanced bracket error at position {{brackets.unBalancedPosition + 1}} <small>(first char is position 1)</small>
+                                <br/>
+                                Offending bracket highlighted in red below
+                            </p>
+                            <p style="font-size: 16px;">
+                                <span>{{brackets.toBalanceCheck.substring( 0, brackets.unBalancedPosition)}}</span>
+                                &nbsp;
+                                <strong style="color: red">{{brackets.toBalanceCheck.substring( brackets.unBalancedPosition, brackets.unBalancedPosition + 1)}}</strong>
+                                &nbsp;
+                                <span>{{brackets.toBalanceCheck.substring( brackets.unBalancedPosition + 1, brackets.toBalanceCheck.length)}}</span>
+
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </script>
+
+
+
+
+            <script type="text/ng-template" id="partials/diagrams.html">
+
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Diagrams about the Parks and Attractions "Sea World" example</h3>
+                        <br/>
+
+                        <legend>For other examples of diagraming techniques of this Author, please visit <a href="http://www.modeldd.org/contents/old-papers/example-uml-models"target="_blank" ><strong>Example UML models at www.ModelDD.org</strong></a></legend>
+                        <legend>
+                            You may review a sample UML model with artifacts as recommended by some Unified Process practices,
+                            for a Shipping Trading business, initiated by offering payloads, or offering trips (two near-mirror-image analysis folded in one).
+                        </legend>
+                        <ul>
+                            <li>
+                                <a href="http://www.modeldd.org/contents/old-papers/example-uml-models/BolsaCargas_BusinessModel.pdf" target="_blank" >
+                                    Business Analysis Model <strong>BolsaCargas_BusinessModel.pdf</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.modeldd.org/contents/old-papers/example-uml-models/BolsaCargas_SystemModel.pdf"target="_blank" >
+                                    System Analysis Model <strong>BolsaCargas_SystemModel.pdf</strong>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.modeldd.org/contents/old-papers/example-uml-models/BolsaCargas_UserExperienceModel_Screens.pdf"target="_blank" >
+                                    Screen mock-ups <strong>BolsaCargas_UserExperienceModel_Screens.pdf</strong>
+                                </a>
+                            </li>
+                        </ul>
+                        <br/>
+
+
+                        <legend>Please, choose one of the available diagrams.</legend>
+
+                        <select style="width: 440px"
+                                name="theSelectedDiagram"
+                                x-ng-model="diagrams.selectedDiagram"
+                                popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                popover="Available diagrams for the Parks and Attractions 'Sea World' example.">
+                            <optgroup label="Wait-times map">
+                                <option value="Map_Components">User Interface components for Wait-times map</option>
+                                <option value="RenderAndUpdateWaitTimesMap">Execution trace to Render and Update the Wait-times map</option>
+                            </optgroup>
+                            <optgroup label="Parks object model">
+                                <option value="Parks_ObjectModel">Object Model for the Parks and Attractions domain</option>
+                                <option value="RetrieveLastWaitTimeForAttraction_Trace">Execution trace to Retrieve the last known Wait Time for an Attaction</option>
+                            </optgroup>
+                        </select>
+
+
+                        <div x-ng-switch on="diagrams.selectedDiagram">
+
+                            <div x-ng-switch-when="Map_Components" >
+                                <h4>User Interface components for Wait-times map, as implemented for AngularJS</h4>
+                                <legend>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                                <br/>
+                                <img src="img/diagrams/Map_Components.png"
+                                     alt="Diagram of SeaWorld Map user interface components, as implemented for AngularJS.">
+                            </div>
+
+                            <div x-ng-switch-when="RenderAndUpdateWaitTimesMap" >
+                                <h4>Execution trace to Render and Update the Wait-times map</h4>
+                                <legend>
+                                    Execution over the User Interface assembly of componentes, as shown in corresponding diagram.
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                                <br/>
+                                <img src="img/diagrams/RenderAndUpdateWaitTimesMap_Trace.png"
+                                     alt="Diagram of SeaWorld Map user interface components, as implemented for AngularJS.">
+                            </div>
+
+                            <div x-ng-switch-when="Parks_ObjectModel" >
+                                <h4>Object Model for the Parks and Attractions domain</h4>
+                                <legend>
+                                    For object oriented manipulation of the information network in support of Wait-times map.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/objects" target="_blank">Objects</a> in the menu bar above.
+                                </legend>
+                                <br/>
+                                <img src="img/diagrams/Parks_ObjectModel.png"
+                                     alt="Diagram of SeaWorld Map user interface components, as implemented for AngularJS.">
+                            </div>
+
+                            <div x-ng-switch-when="RetrieveLastWaitTimeForAttraction_Trace" >
+                                <h4>Execution trace to Retrieve the last known Wait Time for an Attraction</h4>
+                                <legend>Execution over the Parks and Attractions object network, as shown in corresponding diagram.</legend>
+                                <br/>
+                                <img src="img/diagrams/RetrieveLastWaitTimeForAttraction_Trace.png"
+                                     alt="Diagram of SeaWorld Map user interface components, as implemented for AngularJS.">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/programs.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+
+                        <h3><a href="downloads/acv4cmp.zip">Download full code base</a></h3>
+                        <br/>
+
+
+                        <h3>Implementation code</h3>
+                        <br/>
+                        <legend>Please, choose one of the available source code files.</legend>
+
+                        <select style="width: 440px"
+                                name="theSelectedSourceCode"
+                                x-ng-model="programs.selectedSourceCode"
+                                x-ng-change="selectedSourceCodeChangedHandler()"
+                                popover-animation="false" popover-trigger="focus" popover-placement="right"
+                                popover="Available source code for the programs in the Parks and Attractions 'Sea World' example.">
+                            <option value="index.html">index.html - main application page</option>
+                            <option value="app.js">app.js - main URL path router and page dispatcher</option>
+                            <optgroup label="Wait-times">
+                                <option value="waittimes_services.js">waittimes_services.js - server interactions to retrieve Wait-times</option>
+                            </optgroup>
+                            <optgroup label="Map graphics">
+                                <option value="mapcanvas_services.js">mapcanvas_services.js - Map renderer with Kinectic, used by Wait-times and Recommendation</option>
+                                <option value="updatemap_reusable_controllers.js">updatemap_reusable_controllers.js - Mixin for update maps responsibility</option>
+                                <option value="highlightrecommendation_services.js">highlightrecommendation_services.js - Renderer or Recommented Path in SVG</option>
+                             </optgroup>
+                            <optgroup label="SeaWorld map">
+                                <option value="WaitTimes_canvas.js">WaitTimes_canvas.js - Controller in charge of Map Renderering setup</option>
+                                <option value="WaitTimes_controllers.js">WaitTimes_controllers.js - periodical refresh of Wait-times Map</option>
+                            </optgroup>
+                            <optgroup label="Recommendation">
+                                <option value="Recommendation_canvas.js">Recommendation_canvas.js - Recommendation Map and Directions Renderer</option>
+                                <option value="Recommendation_controllers.js">Recommendation_controllers.js - periodical refresh of Recommendation</option>
+                            </optgroup>
+                            <optgroup label="Objects">
+                                <option value="ParksModel_services.js">ParksModel_services.js - object oriented model implementation</option>
+                                <option value="ParkPaths_services.js">ParkPaths_services.js - computation of paths over the object oriented model</option>
+                                <option value="objects_controlers.js">objects_controllers.js - presentation of object model sample instance</option>
+                                <option value="shortestpath_services.js">shortestpath_services.js - Dijkstra's single source shortest path algorithm</option>
+                            </optgroup>
+                            <optgroup label="Brackets">
+                                <option value="brackets_controllers.js">brackets_controllers.js - reacts to UI and presents result</option>
+                                <option value="brackets_services.js">brackets_services.js - checks that brackets are balanced</option>
+                            </optgroup>
+                        </select>
+
+                        <div x-ng-switch on="programs.selectedSourceCode">
+
+                            <div ng-switch-when="index.html" >
+                                <h4>index.html - main application page</h4>
+                                <legend>
+                                    Main page loading the .css and .js resources, defining the Menu Bar, and containing in-line templates for application pages.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+                            <div x-ng-switch-when="app.js" >
+                                <h4>app.js - URL path router and page dispatcher</h4>
+                                <legend>
+                                    Matches paths in the URL to pages. Instantiates pages as templates with controllers.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+
+                            <div x-ng-switch-when="waittimes_services.js" >
+                                <h4>waittimes_services.js - server interactions to retrieve Wait-times</h4>
+                                <legend>
+                                    Accesses the server on behalf of the periodical refresh controller.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+
+                            <div x-ng-switch-when="mapcanvas_services.js" >
+                                <h4>mapcanvas_services.js - Map renderer</h4>
+                                <legend>
+                                    Renders in the canvas with the KineticJS library.
+                                    <br/>
+                                    Used by Wait-times and Recommendation map controllers
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a>
+                                    of
+                                    <a href="#/recommendation" target="_blank">Wait-times map</a>
+                                    in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="updatemap_reusable_controllers.js" >
+                                <h4>updatemap_reusable_controllers.js - Mixin for update maps responsibility</h4>
+                                <legend>
+                                    Contributes to WaitTimes_controllers.js and Recommendation_controllers.js
+                                    prototype members to fullfill the update maps responsibility.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a>
+                                    of
+                                    <a href="#/recommendation" target="_blank">Wait-times map</a>
+                                    in the menu bar above.
+                                </legend>
+                            </div>
+
+
+
+                            <div x-ng-switch-when="WaitTimes_canvas.js" >
+                                <h4>WaitTimes_canvas.js - Map Renderer</h4>
+                                <legend>
+                                    Controller in charge of rendering the Wait-times Map
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+                            <div x-ng-switch-when="WaitTimes_controllers.js" >
+                                <h4>WaitTimes_controllers.js - choreographer for periodical refresh of Wait-times map</h4>
+                                <legend>
+                                    Periodically retrieves Wait-times for Attractions from the server, and pushes the changes to the renderer.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/map" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="highlightrecommendation_services.js" >
+                                <h4>highlightrecommendation_services.js - Renderer or Recommended Path in SVG</h4>
+                                <legend>
+                                    Used by the Recommendation map.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/recommendation" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="Recommendation_canvas.js" >
+                                <h4>Recommendation_canvas.js - Map Renderer</h4>
+                                <legend>
+                                    Controller in charge of rendering the Recomendation and Directions Map
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/recommendation" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="Recommendation_controllers.js" >
+                                <h4>Recommendation_controllers.js - choreographer for periodical refresh of Recomendation and Directions Map</h4>
+                                <legend>
+                                    Periodically updates the recommendation:
+                                    retrieves Wait-times for Attractions from the server,
+                                    computes the Recommendation,
+                                    and pushes the changes to the renderer.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/recommendation" target="_blank">Wait-times map</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+
+
+
+                            <div x-ng-switch-when="ParksModel_services.js" >
+                                <h4>ParksModel_services.js - object oriented model implementation</h4>
+                                <legend>
+                                    Object oriented realization of domain model as specified in the corresponding diagram.
+                                    <br/>
+                                    You may see the diagram clicking on the tab <a href="#/diagrams" target="_blank">Diagrams</a> in the menu bar above.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/objects" target="_blank">Objects</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="ParkPaths_services.js" >
+                                <h4>ParkPaths_services.js - computation of paths over the object oriented model</h4>
+                                <legend>
+                                    Computes Paths between Attractions in a Park. Utilizes a shortest path computation service over the graph of Attracions, Crossings and Roads.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/objects" target="_blank">Objects</a> in the menu bar above,
+                                    and selecting the tab <strong>Paths</strong>.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="objects_controlers.js" >
+                                <h4>objects_controlers.js - presentation of object model sample instance</h4>
+                                <legend>
+                                    Instantiates and presents a network of instances of the object model.
+                                    <br/>
+                                    You may see the diagram for the model clicking on the tab
+                                    <a href="#/diagrams" target="_blank">Diagrams</a> in the menu bar above.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/objects" target="_blank">Objects</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="shortestpath_services.js" >
+                                <h4>shortestpath_services.js - Dijkstra's single source shortest path algorithm</h4>
+                                <legend>
+                                    Wrapped as a Javascript Prototype and AngularJS service.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/objects" target="_blank">Objects</a> in the menu bar above,
+                                    and selecting the tab <strong>Paths</strong>
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="brackets_controllers.js" >
+                                <h4>brackets_controllers.js - reacts to UI and presents result</h4>
+                                <legend>
+                                    Responds to each character key stroke by the User,
+                                    delegates on brackets_services.js to check if the brackets are correctly balanced,
+                                    and informs the User of the offending bracket position, if any.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/brackets" target="_blank">Brackets</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+                            <div x-ng-switch-when="brackets_services.js" >
+                                <h4>brackets_services.js - checks that brackets in a string are well balanced</h4>
+                                <legend>
+                                    Checks if the brackets are correctly balanced,
+                                    and returns the position of the offending bracket position, if any.
+                                    <br/>
+                                    You may visit the live implementation clicking on the tab
+                                    <a href="#/brackets" target="_blank">Brackets</a> in the menu bar above.
+                                </legend>
+                            </div>
+
+
+
+                        </div>
+                        <br/>
+
+                        <div x-ng-show="programs.selectedSourceCode && programs.selectedSourceCode.indexOf( '.js') > 0">
+                            <div ui-codemirror="{
+                                        lineWrapping : false,
+                                        lineNumbers: true,
+                                        theme: 'eclipse',
+                                        readOnly: 'nocursor',
+                                        mode: 'javascript'
+                                    }"
+                                 x-ng-model="programs.sourceCode" >
+                            </div>
+                        </div>
+
+                        <div x-ng-show="programs.selectedSourceCode && programs.selectedSourceCode.indexOf( '.html') > 0">
+                            <div ui-codemirror="{
+                                        lineWrapping : false,
+                                        lineNumbers: true,
+                                        theme: 'eclipse',
+                                        readOnly: 'nocursor',
+                                        mode: 'xml'
+                                    }"
+                                 x-ng-model="programs.sourceCode" >
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/compatibility.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+
+                        <h3>Tested in operating systems</h3>
+                        <br/>
+                        <ul>
+                            <li><strong>Linux Ubuntu</strong> Version 12.04 LTS x64</li>
+                            <li><strong>Windows</strong> Version Vista Home</li>
+                        </ul>
+
+                        <h3>Works in browsers</h3>
+                        <ul>
+                            <li><strong>Chrome</strong> Version 34.0.1847.45 beta-m</li>
+                            <li><strong>Firefox</strong> Version 12.0</li>
+                            <li><strong>Opera</strong> Version 20.0.1387.64</li>
+                        </ul>
+
+                        <h3>Does not work in browsers</h3>
+                        <ul>
+                            <li><strong>Internet Explorer</strong> Version 9.0.8112.16421</li>
+                        </ul>
+
+
+                        <h3>Does not work when run from file-system</h3>
+                        <ul>
+                            <li><strong>Programs</strong> Display source code</li>
+                        </ul>
+
+                        <h3>Work-around for cases not working when run from file-system</h3>
+                        <legend>
+                            To run locally with success those parts not working when run from the file-system,
+                            you need to use a web server, like nginx or Apache.
+                            <br/>
+                            As a work-around, a <em>"ToyServer"</em> is also supplied in the downloadable archive
+                            <a href="downloads/acv4cmp.zip"><strong>acv4cmp.zip</strong></a>.
+                        </legend>
+
+                        <legend>
+                            The supplied ToyServer requires that
+                            you have installed Python (available for all platforms), and JSONRPClib.
+                            <br/>
+                            JSONRPClib is also supplied here
+                            <a href="downloads/jsonrpclib-master.zip"><strong>jsonrpclib-master.zip</strong></a>
+                            for your convenience, and in file with same name in the downloadable archive.
+                        </legend>
+
+                        <legend>
+                            To install JSONRPClib, extract the contents of the jsonrpclib-master.zip file into working directory.
+                            <br/>
+                            Then change current directory to <em>jsonrpclib-master</em>,
+                            and run
+                            <br/>
+                            <strong>python setup.py install</strong>
+                            <br/>
+                            You may then launch <em>ToyServer.bat</em> (windows),
+                            or <em>toyserver_term.sh</em> (linux),
+                            from their location in the product's source code root directory.
+                        </legend>
+
+                        <legend>
+                            To access the application visit the URL
+                            <a href="http://localhost:8181">http://localhost:8181</a>
+                            <br/>
+                            The port number is hard-coded in the <em>startup8181.py</em> Python program file.
+                        </legend>
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+
+
+
+            <script type="text/ng-template" id="partials/technologies.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Technologies applied in this exercise</h3>
+                        <br/>
+
+                        <legend>
+                            This exercise has been programmed with Javascript to run on a Web Browser.
+                            You may see the list of compatible web browsers in
+                            <a href="#/compatibility" target="_blank"><strong>Compatibility</strong></a>.
+                        </legend>
+                        <br/>
+
+
+                        <h3>AngularJS</h3>
+                        <legend>
+                            AngularJS is the framework chosen to drive the presentation and dialog of the
+                            <em>Single Page</em>, <em>Responsive</em>, <em>Mobile-enabled</em>
+                            User Interface.
+                        </legend>
+
+
+                        <h4>For additional examples on AngularJS data-entry and data-display, please visit</h4>
+                        <legend>
+                            <a href="http://www.modulo10.es/app/#/edificaciones?titulo=Nave%201%20(copia)&instancia=EDIFICACIONES-2014-03-12%2007:55:54.509"  target="_blank">
+                                <strong>Módulo10 - Valoración del Riesgo de Edificaciones</strong>
+                            </a>
+                        </legend>
+                        <br/>
+
+                        <h4>More examples on instrumentation with AngularJS are available at</h4>
+                        <legend>
+                            <a href="http://www.modulo10.es/app/indexAvanzado.html#/graficasAvanzado?grafica=naves-modulos&selectedTableName=Ecorapid&selectedTipoNave=&selectedDimension=Altura&selectedMagnitud=4&mostrarInferidosPorAbajo=true&mostrarExplicitos=true&mostrarInferidosPorArriba=true&mostrarAlturasExtrapoladas=true&mostrarLucesExtrapoladas=true&mismaEscalaTodasTablas=false&mismoOrigenTodasTablas=true&selectedMagnitudPrimera=10&selectedMagnitudSegunda=15&mostrarControles=false&ox=0&oy=5&oz=0&ax=0&ay=0&az=0&s=100&d=4&f=1000&n=-3" target="_blank">
+                                <strong>Visualizar gráficas de tablas base de para Valoraciones de Riesgos de Edificaciones en Módulo10</strong>
+                            </a>
+                            <br/>
+                            <a href="http://www.modulo10.es/app/indexAvanzado.html#/visualizarLotesEdificacionesAvanzado?titulo=Fabricaci%C3%B3n_en_una_planta-Cubierta_plana_no_transitable-Acero-Todos-NoCuartiles-Media-Barcelona-CorrSup&lote=2014-03-04-10-45-41&calidad=1&altura=20&luz=10&largo=15"  target="_blank">
+                                <strong>Visualizar Lotes de Valoraciones del riesgo de Edificaciones en Módulo10</strong>
+                            </a>
+                        </legend>
+
+                    </div>
+                </div>
+            </script>
+
+
+
+
+
+        </div>
+        <!-- END common templates -->
+
+
+
+
+
+
+        <!-- header -->
+        <div class="MDD_PageHead">
+            <h1>&emsp;<a href="#/map">ACV for CM Productions</a></h1>
+        </div>
+
+        <!-- menuBar -->
+        <div class="MDD_div">
+            <div class="navbar" bs-navbar>
+                <div class="navbar-inner">
+                    <ul class="nav">
+                        <li data-match-route="/welcome"       ><a href="#/welcome"        >Welcome!</a></li>
+                        <li data-match-route="/credits"       ><a href="#/credits"        >Credits</a></li>
+                        <li data-match-route="/objects"       ><a href="#/objects"        >Objects</a></li>
+                        <li data-match-route="/map"           ><a href="#/map"            >Wait-time map</a></li>
+                        <li data-match-route="/recommendation"><a href="#/recommendation" >Recommendation</a></li>
+                        <li data-match-route="/brackets"      ><a href="#/brackets"       >Brackets</a></li>
+                        <li data-match-route="/diagrams"      ><a href="#/diagrams"       >Diagrams</a></li>
+                        <li data-match-route="/programs"      ><a href="#/programs"       >Programs</a></li>
+                        <li data-match-route="/compatibility" ><a href="#/compatibility"  >Compatibility</a></li>
+                        <li data-match-route="/technologies"  ><a href="#/technologies"   >Technologies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div loading-widget  id ="id-loadingWidget"  class="AjaxSpinner">
+            <div id ="id-AjaxSpinner-inner" >
+                <img id="id-AjaxSpinner_img" src="img/ajax-loader.gif"
+                     title="Waiting response from server." alt="Waiting response from server."/>
+            </div>
+        </div>
+
+
+
+        <!-- view -->
+        <div x-ng-view class="MDD_div"></div>
+
+
+
+        <br/>
+        <hr/>
+
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+                <small>
+                    &copy; 2014 Antonio Carrasco Valero
+                    <br/>
+                    Licensed to CM Productions for the exclusive use of
+                    evaluating Antonio Carrasco Valero's (author's) skills and performance
+                    as part of a permanent hiring selection process by CM Productions.
+                    No other use of this code is authorized.
+                    <br/>
+                    Distribution and copy of this code is prohibited.
+                    <br/>
+                    "ThemePark" domain, and original code now in file "WaitTimes_canvas.js" supplied by CP Productions.
+                    <br/>
+                    Artworks about the "SeaWorld" map background property of the theme park owners or franchise.
+                </small>
+            </div>
+        </div>
+
+
+
+
+        <hr/>
+    </body>
+</html>

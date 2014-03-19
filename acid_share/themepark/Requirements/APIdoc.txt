@@ -1,0 +1,197 @@
+====================================
+
+GENERIC EXCEPTION RESPONSE
+{
+	"action": "exception"
+	"message": "<message>"
+}
+
+====================================
+
+LOGIN REQUEST
+{
+	"action": "login",
+	"applicationId": "<applicationId>",
+	"password": "<password>",
+	"park": "<parkName>"
+}
+
+ApplicationId: We will provide you with an applicationId and password.
+
+RESPONSE
+{
+	"action": "login",
+	"token": "<token>"
+}
+
+====================================
+
+LOGOUT REQUEST
+{
+	"action": "logout",
+	"token": "<token>"
+}
+
+REPONSE
+{
+	"action": "logout"
+}
+
+====================================
+
+GET ALL WAIT TIMES
+{
+	"action": "getAllWaitTimes",
+	"token": "<token>"
+}
+
+RESPONSE
+{
+	"action": "getAllWaitTimes",
+	"timeOfDay": "<timeOfDay>",
+	"waitTimes":
+	{
+		"<attractionId1>": <minutes>,
+		"<attractionId2>": <minutes>,
+		"<attractionId3>": <minutes>
+		...
+		// Not granted to be sorted.
+	}
+}
+
+====================================
+
+GET WAIT TIMES FOR LIST OF ATTRACTIONS
+{
+	"action": "getWaitTimesForListOfAttractions",
+	"token": "<token>",
+	"attractionIds": [ "<Id5>", "<Id2>", "<Id13>", ... ]
+}
+
+RESPONSE
+{
+	"action": "getWaitTimesForListOfAttractions",
+	"timeOfDay": "<timeOfDay>"
+	"waitTimes":
+	[
+		<minutes>,
+		<minutes>,
+		<minutes>
+		...
+		// Same order than request.
+	]
+}
+
+====================================
+
+GET WAIT TIMES FOR ATTRACTION
+{
+	"action": "getWaitTimeForAttraction",
+	"token": "<token>",
+	"attractionId": "<id1>"
+}
+
+RESPONSE
+{
+	"action": "getWaitTimesForAttraction",
+	"timeOfDay": "<timeOfDay>",
+	"waitTime": <minutes>
+}
+
+====================================
+
+GET ATTRACTION LIST THAT HAS CHANGED ITS WAIT TIME SINCE GIVEN TIME
+{
+	"action": "getChangedWaitTimesSince",
+	"token": "<token>",
+	"timeOfDay": "<timeOfDay>"
+}
+
+RESPONSE
+{
+	"action": "getWaitTimesForAttraction",
+	"timeOfDay": "<timeOfDay>",
+	"attractionList":
+	[
+		"<id7>",
+		"<id2>",
+		...
+		// Not granted to be sorted.
+	]
+}
+
+====================================
+
+ADMIN ZONE
+
+// You don't need to use this one, unless you are applying
+// for a tester job-offer and you break the API during your
+// testing.
+
+SIMULATOR GET CONFIG REQUEST
+{
+	"action": "getConfig",
+	"token": "<token>",
+}
+
+
+RESPONSE
+{
+	"action": "simulatorConfig",
+	"timeOfDay": "<timeOfDay>",
+	"config":
+	{
+		"desiredTimeOfDayOnTimeOrigin": "<timeOfDay(set by client)>",
+		"realTimeClockTimeOfDayOnTimeOrigin": "<timeOfDay(set by server)>",
+		"speed": <factor>
+	}
+}
+
+====================================
+
+SIMULATOR SET CONFIG REQUEST
+{
+	"action": "setConfig",
+	"token": "<token>",
+	"config":
+	{
+		"timeOfDay": "<timeOfDay>",
+		"speed": <factor>
+	}
+}
+
+RESPONSE
+{
+	"action": "simulatorConfig",
+	"timeOfDay": "<timeOfDay>",
+}
+
+====================================
+
+RESET SERVER REQUEST
+{
+	"action": "resetServer"
+}
+
+RESPONSE
+{
+	"action": "resetServer",
+	"sessionId": "<sessionId>",
+	"session": { <session> }
+}
+
+====================================
+
+GET SERVER REQUEST
+{
+	"action": "getServer"
+}
+
+RESPONSE
+{
+	"action": "getServer",
+	"sessionId": "<sessionId>",
+	"session": { <session> }
+}
+
+====================================

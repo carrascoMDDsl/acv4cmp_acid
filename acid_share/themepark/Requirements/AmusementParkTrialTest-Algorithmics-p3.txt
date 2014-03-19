@@ -1,0 +1,17 @@
+Park
+[13/03/2014 17:18:05] Xavi Montero: getAttractions()
+[13/03/2014 17:18:10] Xavi Montero: getRoads()
+[13/03/2014 17:18:13] Xavi Montero: Attraction
+[13/03/2014 17:18:16] Xavi Montero: getX()
+[13/03/2014 17:18:18] Xavi Montero: getY()
+[13/03/2014 17:18:22] Xavi Montero: getPark()
+[13/03/2014 17:18:26] Xavi Montero: getWaitTime()
+[13/03/2014 17:18:28] Xavi Montero: getId()
+[13/03/2014 17:18:32] Xavi Montero: getRoads()
+[13/03/2014 17:18:43] Xavi Montero: Road
+[13/03/2014 17:18:48] Xavi Montero: getNodeStart()
+[13/03/2014 17:18:57] Xavi Montero: getNodeStop()
+[13/03/2014 17:19:03] Xavi Montero: getPark()
+[13/03/2014 17:19:10] Xavi Montero: getLength()
+[13/03/2014 17:19:14] Xavi Montero: getId()
+[13/03/2014 17:20:34] Xavi Montero: Attration getRecommendedAttraction( Attraction attraction )

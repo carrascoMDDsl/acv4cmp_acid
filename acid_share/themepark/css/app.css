@@ -1,0 +1,2016 @@
+/*
+* app.css
+*
+* Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+*
+* Copyright 2014 by the Author of this code Antonio Carrasco Valero
+* 03/11/2014
+*/
+
+
+
+/* ***********************************
+Rules reused from the Author's work and experiments elsewhere.
+*/
+
+body {
+    padding-top: 20px;
+}
+
+
+h1 {
+    border-bottom: 1px solid gray;
+}
+
+
+
+span.mddm10_labels_category {
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+label.mddm10_label {
+    vertical-align: middle;
+    width: 100px;
+    display: inline-block;
+}
+
+
+
+
+label.mddm10_categorylabel {
+    width: 240px;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+label.mddm10_categorysublabel {
+    width: 240px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+div.MDD_div label.mddm10_categorysublabel_disabled {
+    width: 240px;
+    display: inline-block;
+    font-size: 12px;
+    color: #888888;
+}
+
+
+
+label.mddm10_categoryFilterSublabel {
+    width: 180px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+
+
+
+span.mddm10_categorysubhelp {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 11px;
+}
+
+div.MDD_div span.mddm10_categorysubhelp_disabled {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 11px;
+    color: #888888;
+}
+
+
+label.mddm10_label_anywidth {
+    display: block;
+}
+
+
+label.mddm10_label_long {
+    width: 200px;
+    display: block;
+}
+
+
+label.mddm10_label_short {
+    width: 100px;
+    display: inline-block;
+}
+
+
+label.mddm10_label_result {
+    width: 100px;
+    display: inline-block;
+}
+
+
+label.mddm10_labelcategoryresult {
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    display: inline-block;
+}
+
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 600px;
+    /*
+    height: 300px
+    */
+}
+
+
+.informeError {
+    background-color: #FF8080;
+    font-weight: bold;
+}
+
+hr.MDD_login {
+    border-top: 1px solid #FFDCA4;
+    border-bottom: 1px solid white;
+    margin: 8px;
+}
+
+
+
+label.NombreDeUsuario {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+label.PalabraDePaso {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+input.LoginButton, input[type=submit].LoginButton {
+    height: 24px;
+}
+
+
+
+label.Empresa {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+
+input.NombreDeUsuario {
+    width: 80px;
+    height: 14px;
+}
+
+input.PalabraDePaso {
+    width: 50px;
+    height: 14px;
+}
+
+
+input.Empresa {
+    width: 50px;
+    height: 14px;
+}
+
+input.UserFocus_Coordinate {
+    width: 60px;
+    height: 14px;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+input.UserFocus_SmallCoordinate {
+    width: 40px;
+    height: 14px;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+
+input.UserFocus_Angle {
+    width: 60px;
+    height: 14px;
+}
+
+
+input.UserFocus_SmallAngle {
+    width: 40px;
+    height: 14px;
+    vertical-align: middle;
+    margin: 2px;
+}
+
+
+input.FiltroConExclusionesPorCuartiles {
+    width: 80px;
+}
+
+
+label.UserFocusLabelLong {
+    width: 100px;
+    display: inline-block;
+}
+
+label.UserFocusLabelShort {
+    width: 24px;
+    display: inline-block;
+}
+
+span.LabelAndField {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+.gridTableDumpStyle_h400 {
+    border: 1px solid rgb(212,212,212);
+    height: 400px;
+}
+
+
+
+.gridTableDumpStyle_h600 {
+    border: 1px solid rgb(212,212,212);
+    height: 600px;
+}
+
+
+
+.gridTableDumpStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 600px;
+}
+
+.gridTableDumpStyle_Auto {
+    border: 1px solid rgb(212,212,212);
+    /* width: 512px; */
+}
+
+
+.gridTableDatasetStyle {
+    border: 1px solid rgb(212,212,212);
+    /* width: 512px; */
+}
+
+
+.GridValoresVecinos {
+    border: 1px solid rgb(212,212,212);
+    height: 150px;
+    width:  260px;
+}
+
+
+
+
+
+table.MDDstyleTablaSelectoresRangos , table.MDDstyleTablaSelectoresRangos th, table.MDDstyleTablaSelectoresRangos td {
+    font-size: smaller;
+    border-collapse:collapse;
+    border: 0px;
+    padding: 0px 4px;
+}
+
+
+/* tree */
+.uiTree {
+    list-style-type: none;
+    margin-left: 10px;
+    padding-bottom: 5px;
+}
+.uiTree li a.icon {
+    display: inline-block;
+    width: 24px;
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+.uiTree li .node:hover > a.addChild {
+    display: inline-block;
+}
+.uiTree li a.addChild {
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+    vertical-align: text-bottom;
+}
+.uiTree li .node {
+    padding-bottom: 5px;
+}
+.uiTree span.nodeLabel {
+    cursor: pointer;
+}
+.uiTree span.nodeLabel.selected {
+    border: 1px solid #aaa;
+    background-color: #ddd;
+    padding: 1px 3px;
+}
+
+
+.AjaxSpinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -33px; /* half width of the spinner gif */
+    margin-top: -33px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;
+    overflow: auto;
+    width: 80px; /* width of the spinner gif */
+    height: 80px; /*height of the spinner gif +2px to fix IE8 issue */
+}
+
+
+.AjaxSpinner_InitiallyShown {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -33px; /* half width of the spinner gif */
+    margin-top: -33px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1234;
+    overflow: auto;
+    width: 80px; /* width of the spinner gif */
+    height: 80px; /*height of the spinner gif +2px to fix IE8 issue */
+}
+
+.Hidden {
+    display: none;
+}
+
+
+.ColorPrimeraDimension {
+    color: #FF0000 !important;
+}
+
+
+.ColorSegundaDimension {
+    color: #009900 !important;
+}
+
+
+select.SmallSelect {
+    width: 100px;
+    height: 24px;
+    margin: 2px;
+}
+
+
+
+input.KeyboardControlInput {
+    height:  12px;
+    width: 20px;
+    margin: 2px;
+    font-size: 9px;
+}
+
+.ComentarioAsistencia {
+    font-size: 10pt;
+    color: #707070;
+}
+
+button.MDD_ButtonWithoutBorder {
+    padding: 1px 1px;
+    vertical-align: middle;
+    border: 0px;
+    background-color: #FFFFFF;
+}
+
+
+input.MDD_Slider {
+    padding: 1px 1px;
+    vertical-align: middle;
+    border: 2px;
+    background-color: #FFFFFF;
+}
+
+
+textarea.MDD_DDL_textarea {
+    width:  300px;
+    height: 250px;
+    background-color: #FFFFFF;
+}
+
+
+textarea.MDD_SQL_textarea {
+    width:  640px;
+    height: 250px;
+    background-color: #FFFFFF;
+}
+
+
+textarea.MDD_Exportable_textarea {
+    width:  640px;
+    height: 250px;
+    background-color: #FFFFFF;
+}
+
+
+button.BotonCopiarAPortapapeles {
+    padding: 1px 1px;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+}
+
+
+
+form.ButtonsForm {
+    margin: 0 0 0;
+}
+
+
+table.TablaValoresVecinos {
+    width: 300;
+    border: 1px solid rgb(212,212,212);
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding:4px;
+}
+
+
+
+
+
+div.GridTableAndLeftColumnsContainer  {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+
+
+
+
+table.GridLeftColumns {
+    background-color: white;
+    z-index: 9;
+    position:absolute;
+    display: block;
+    margin-top:  -4px;
+    margin-left:  -4px;
+    width: 40px;
+    max-width: 40px;
+    border: 1px solid rgb(212,212,212);
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding:4px;
+}
+
+
+
+div.GridTableContainer  {
+    display: block;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+
+
+
+
+
+div.GridTableScrollAndLeftColumnsContainer  {
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+
+div.GridScrollLeftColumnsContainer {
+    height: 332px;
+    overflow: auto;
+    float: left;
+    position: absolute;
+    background-color: white;
+    display: inline;
+    margin-top:  0px;
+    margin-left:  0px;
+}
+
+
+table.GridScrollLeftColumns {
+    float: left;
+    background-color: white;
+    display: inline;
+    margin-top:  0px;
+    margin-left:  0px;
+    width: 90px;
+    max-width: 90px;
+    border: 1px solid rgb(212,212,212);
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+
+
+div.GridScrollTableContainer  {
+    margin-right: auto;
+    margin-top:  0px;
+    margin-left:  90px;
+    display: inline;
+    height: 332px;
+    overflow: auto;
+    display: block;
+}
+
+
+
+div.GridScrollTableHeaderContainer  {
+    margin-right: auto;
+    margin-top:  0px;
+    margin-left:  90px;
+    display: inline;
+    overflow: auto;
+    display: block;
+    height: 42px;
+}
+
+
+
+
+
+table.GridTable {
+    margin: 0px;
+    border-spacing: 0;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+
+
+th.GridHeaderCell {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    border-collapse:collapse;
+    border-spacing: 0;
+    border: 1px solid #FFD59F;
+    border: 0;
+    padding: 4px 6px 4px 6px;
+    background-color: #FFD59F;
+}
+
+td.GridHeaderCell {
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    border-collapse:collapse;
+    border-spacing: 0;
+    border: 1px solid #FFD59F;
+    border: 0;
+    padding: 4px 6px 4px 6px;
+    background-color: #FFD59F;
+}
+
+td.GridCell {
+    background-color: white;
+    text-align: right;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 4px 6px 4px 6px;
+}
+
+td.GridCell_Highlighted {
+    background-color: #FFD59F;
+    text-align: right;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 4px 6px 4px 6px;
+}
+
+
+td.GridCell_RedText {
+    color: #FF0000;
+    background-color: white;
+    text-align: right;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 4px 6px 4px 6px;
+}
+
+
+td.GridCell_Highlighted_RedText {
+    color: #FF0000;
+    background-color: #FFD59F;
+    text-align: right;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 4px 6px 4px 6px;
+}
+
+
+td.GridCell span.GridCell_Highlighted, td.GridCell_Highlighted span.GridCell_Highlighted {
+    color: #FF0000;
+}
+
+
+
+
+div.ListaCNAEsContainer  {
+    margin-top:  0px;
+    margin-left:  0;
+    max-height: 200px;
+    overflow-y: auto;
+    display: inline-block;
+    width: 388px;
+}
+
+
+
+
+table.CNAEsTable {
+    margin: 0px;
+    border-spacing: 0;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+
+th.CNAEsTable {
+    text-align: left;
+    font-weight: bold;
+    border-collapse:collapse;
+    border-spacing: 0;
+    border: 1px solid #FFD59F;
+    border: 0;
+    padding: 4px 6px 4px 6px;
+    background-color: #FFD59F;
+}
+
+td.CNAEsTableCNAE {
+    text-align: left;
+    background-color: white;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 2px 6px 2px 6px;
+    cursor: pointer;
+}
+
+td.CNAEsTableDescripcion {
+    text-align: left;
+    font-weight: normal;
+    background-color: white;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 2px 6px 2px 6px;
+    cursor: pointer;
+}
+
+
+
+
+
+div.ListaEspeciesContainer  {
+    margin-top:  0px;
+    margin-left:  0;
+    max-height: 200px;
+    overflow-y: auto;
+    display: inline-block;
+    width: 388px;
+}
+
+
+
+
+table.EspeciesTable {
+    margin: 0px;
+    border-spacing: 0;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+
+th.EspeciesTable {
+    text-align: left;
+    font-weight: bold;
+    border-collapse:collapse;
+    border-spacing: 0;
+    border: 1px solid #FFD59F;
+    border: 0;
+    padding: 4px 6px 4px 6px;
+    background-color: #FFD59F;
+}
+
+td.EspeciesTable {
+    text-align: left;
+    background-color: white;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 2px 6px 2px 6px;
+    cursor: pointer;
+}
+
+
+td.EspeciesSelectedTable {
+    text-align: left;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 2px 6px 2px 6px;
+    cursor: pointer;
+    color: white !important;
+    background-color: #ED8000;
+}
+
+
+
+
+
+
+
+
+div.ListaFactoresContainer  {
+    margin-top:  0px;
+    margin-left:  0;
+    max-height: 200px;
+    overflow-y: auto;
+    display: inline-block;
+    width: 388px;
+}
+
+
+
+
+table.FactoresTable {
+    margin: 0px;
+    border-spacing: 0;
+    border-collapse:collapse;
+    border-spacing: 0;
+}
+
+
+th.FactoresTable {
+    text-align: left;
+    font-weight: bold;
+    font-size: 11px;
+    border-collapse:collapse;
+    border-spacing: 0;
+    border: 1px solid #FFD59F;
+    border: 0;
+    padding: 4px 6px 4px 6px;
+    background-color: #FFD59F;
+}
+
+td.FactoresTable {
+    text-align: left;
+    background-color: white;
+    border: 1px solid #FFD59F;
+    border-collapse:collapse;
+    border-spacing: 0;
+    padding: 2px 6px 2px 6px;
+}
+
+
+
+
+
+@media (max-width: 280px) {
+    div.GridTableContainer  div.GridScrollTableContainer {
+        width: 235px;
+    }
+}
+
+@media(min-width: 281px) and  (max-width: 380px) {
+    div.GridTableContainer  div.GridScrollTableContainer  {
+        width: 332px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    table.GridLeftColumns   {
+        display: none;
+    }
+}
+
+@media (min-width: 381px) and (max-width: 480px) {
+    table.GridLeftColumns {
+        display: none;
+    }
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 426px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 426px;
+    }
+}
+
+
+@media (min-width: 560px) and (max-width: 640px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 505px;
+    }
+}
+
+
+@media (min-width: 641px) and (max-width: 700px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 544px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 614px;
+    }
+}
+
+
+@media (min-width: 801px) and (max-width: 900px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 714px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1025px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 744px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1125px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 968px;
+    }
+}
+
+@media (min-width: 1126px) and (max-width: 1200px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 1068px;
+    }
+}
+
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 1134px;
+    }
+}
+
+
+@media (min-width: 1301px) and (max-width: 1400px) {
+    div.GridTableContainer  div.GridScrollTableContainer   {
+        width: 1234px;
+    }
+}
+
+
+@media (min-width: 1401px) and (max-width: 1500px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 1334px;
+    }
+}
+
+
+@media (min-width: 1501px) and (max-width: 1600px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 1434px;
+    }
+}
+
+
+@media (min-width: 1601px) {
+    div.GridTableContainer   div.GridScrollTableContainer  {
+        width: 1534px;
+    }
+}
+
+
+
+tr.FilaValorVecinos {
+    border: 1px solid rgb(212,212,212);
+    padding:4px;
+}
+
+
+td.CeldaValorVecino {
+    border: 1px solid rgb(212,212,212);
+    padding:4px;
+}
+
+input.PesoValorVecino {
+    width: 80px;
+    background-color: #FFFFFF;
+}
+
+
+
+h5.TituloArbol {
+    margin-left: 24px;
+}
+p.LeyendaArbol {
+    margin-left: 24px;
+}
+
+
+select.SpeedSelect {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    margin: 0;
+    border: 0;
+}
+
+
+input.Giro360_Slider {
+    width: 70px;
+}
+
+input.Giro_Slider {
+    width: 70px;
+}
+
+input.Dimension_Slider {
+    width: 90px;
+}
+
+input.Dimension_Digits {
+    width: 32px;
+}
+
+
+div.MDD_TabsBar {
+    margin: 0 auto;
+    border: 0px;
+
+    background-color: #ED8000;
+    background-image: -moz-linear-gradient(top, #ED8000, #222222);
+    background-image: -ms-linear-gradient(top, #ED8000, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ED8000), to(#222222));
+    background-image: -webkit-linear-gradient(top, #ED8000, #222222);
+    background-image: -o-linear-gradient(top, #ED8000, #222222);
+    background-image: linear-gradient(top, #ED8000, #222222);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ED8000', endColorstr='#222222', GradientType=0);
+
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+}
+
+div.MDD_Tab {
+    font-weight: bold;
+    color: #FFFFFF;
+    display: inline-block;
+    border: 0px;
+
+
+    background-color: #ED8000;
+    background-image: -moz-linear-gradient(top, #ED8000, #222222);
+    background-image: -ms-linear-gradient(top, #222222, #ED8000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#ED8000));
+    background-image: -webkit-linear-gradient(top, #222222, #ED8000);
+    background-image: -o-linear-gradient(top, #222222, #ED8000);
+    background-image: linear-gradient(top, #222222, #ED8000);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#222222', endColorstr='#ED8000', GradientType=0);
+
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 4px 4px 4px;
+    margin: 4px 2px 4px 2px;
+}
+
+
+div.MDD_Tab_Selected {
+    font-weight: bold;
+    color: #000000;
+    display: inline-block;
+    border: 0px;
+
+    background-color: #EFB000;
+    background-image: -moz-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#EFB000));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -o-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: linear-gradient(top, #FFFFFF, #EFB000);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EFB000', GradientType=0);
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 4px 4px 4px;
+    margin: 4px 2px 4px 2px;
+}
+
+
+div.MDD_TabContent {
+    margin-top: 14px;
+}
+
+
+
+
+div.MDD_SubTabsBar {
+    margin: 0 auto;
+    border: 0px;
+    margin-top: 8px;
+
+
+    background-color: #EF9100;
+    background-image: -moz-linear-gradient(top, #EF9100, #222222);
+    background-image: -ms-linear-gradient(top, #EF9100, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#EF9100), to(#222222));
+    background-image: -webkit-linear-gradient(top, #EF9100, #222222);
+    background-image: -o-linear-gradient(top, #EF9100, #222222);
+    background-image: linear-gradient(top, #EF9100, #222222);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#EF9100', endColorstr='#222222', GradientType=0);
+
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+}
+
+div.MDD_SubTab {
+    font-size: 11px;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: inline-block;
+    border: 0px;
+
+    background-color: #EF9100;
+    background-image: -moz-linear-gradient(top, #EF9100, #222222);
+    background-image: -ms-linear-gradient(top, #222222, #EF9100);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#EF9100));
+    background-image: -webkit-linear-gradient(top, #222222, #EF9100);
+    background-image: -o-linear-gradient(top, #222222, #EF9100);
+    background-image: linear-gradient(top, #222222, #EF9100);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#222222', endColorstr='#EF9100', GradientType=0);
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 4px 4px 4px;
+    margin: 4px 2px 4px 2px;
+}
+
+
+div.MDD_SubTab_Selected {
+    font-size: 11px;
+    font-weight: bold;
+    color: #000000;
+    display: inline-block;
+    border: 0px;
+
+    background-color: #F1C010;
+    background-image: -moz-linear-gradient(top, #FFFFFF, #F1C010);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#F1C010));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #F1C010);
+    background-image: -o-linear-gradient(top, #FFFFFF, #F1C010);
+    background-image: linear-gradient(top, #FFFFFF, #F1C010);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#F1C010', GradientType=0);
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 4px 4px 4px;
+    margin: 4px 2px 4px 2px;
+}
+
+
+div.MDD_SubTabContent {
+    margin-top: 10px;
+}
+
+
+div.MDD_div  hr {
+    border-top: 1px solid #FFDCA4;
+    border-bottom: 1px solid white;
+}
+
+
+
+div.MDD_PageHead, div.MDD_PageHead a{
+    color: #dd5400;
+}
+
+
+
+div.MDD_div h1, div.MDD_div h2, div.MDD_div h3, div.MDD_div h4, div.MDD_div h5, div.MDD_div span{
+    color: #3B1D00;
+}
+
+
+span.MDD_Copyright {
+    color: #3B1D00;
+    font-size: 11px;
+}
+
+span.MDD_Version {
+    color: #3B1D00;
+    font-size: 9px;
+}
+
+
+span.MDD_Creditos {
+    color: #3B1D00;
+    font-size: 9px;
+}
+
+
+div.MDD_div label {
+    color: #3B1D00;
+}
+
+legend.MDD_AvisoJustificado  {
+    border: 0;
+    color: #3B1D00;
+    margin-bottom: 16px;
+    text-align: justify;
+    font-weight: bold;
+}
+
+
+div.MDD_TerminosJustificado {
+    color: #3B1D00;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+
+
+div.MDD_div legend {
+    border: 0;
+    color: #3B1D00;
+    margin-bottom: 6px;
+}
+
+div.MDD_div legend, div.MDD_div legend span, div.MDD_div legend small {
+    color: #3B1D00;
+}
+
+
+div.MDD_div span.G10_ValorCampo {
+    font-weight: bold;
+    color: #3B1D00;
+}
+
+div.MDD_div textarea.G10_ValorCampo {
+    color: #3B1D00;
+}
+
+
+div.MDD_div span.G10_ValorCampo_discreto {
+    font-weight: normal;
+    color: #3B1D00;
+}
+
+
+div.MDD_div input, div.MDD_div select, div.MDD_div textarea {
+    border-color: #A04100;
+    color: #3B1D00;
+}
+
+select.MDD_selectMagnitudeInterval {
+    border-color: #A04100;
+    color: #3B1D00;
+    width: 91px;
+}
+
+select.MDD_selectCalidadInterval {
+    border-color: #A04100;
+    color: #3B1D00;
+    width: 91px;
+}
+
+
+div.MDD_div input[type=submit], div.MDD_div input[type=button] {
+    margin: 2px;
+    background-color: #FFC704;
+    font-weight: bold;
+
+    background-color: #FFC704;
+    background-image: -moz-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#FFC704));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -o-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: linear-gradient(top, #FFFFFF, #FFC704);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFC704', GradientType=0);
+}
+
+
+
+
+div.MDD_div input[type=submit].Button_thin, div.MDD_div input[type=button].Button_thin {
+    margin: 2px;
+    height: 24px;
+    background-color: #FFC704;
+    font-weight: bold;
+
+    background-color: #FFC704;
+    background-image: -moz-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#FFC704));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: -o-linear-gradient(top, #FFFFFF, #FFC704);
+    background-image: linear-gradient(top, #FFFFFF, #FFC704);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#FFC704', GradientType=0);
+}
+
+
+div.MDD_div input:focus, div.MDD_div select:focus, div.MDD_div textarea:focus {
+    border-color: #A04900;
+
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(160, 73, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(160, 73, 0, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(160, 73, 0, 0.6);
+}
+
+
+div.MDD_div input[disabled], div.MDD_div input[disabled][type=submit],  input[disabled][type=submit], div.MDD_div input[disabled][type=button], div.MDD_div select[disabled], div.MDD_div textarea[disabled] {
+    margin: 2px 0;
+    background-color: #F8F8F8;
+    border-color: #FFC040;
+}
+
+
+
+div.MDD_div input[disabled][type=submit], div.MDD_div input[disabled][type=button] {
+    margin: 2px;
+    background-color: #F8F8F8;
+    border-color: #F8F8F8;
+
+    background-image: -moz-linear-gradient(top, #FFFFFF, #D0D0D0);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #D0D0D0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#D0D0D0));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #D0D0D0);
+    background-image: -o-linear-gradient(top, #FFFFFF, #D0D0D0);
+    background-image: linear-gradient(top, #FFFFFF, #D0D0D0);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#D0D0D0', GradientType=0);
+}
+
+
+
+
+
+
+
+/* ACV CHANGE color ADDED font-size*/
+div.MDD_div .navbar-inner {
+
+    min-height: 40px;
+    background-color: #ED8000;
+    background-image: -moz-linear-gradient(top, #ED8000, #222222);
+    background-image: -ms-linear-gradient(top, #ED8000, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ED8000), to(#222222));
+    background-image: -webkit-linear-gradient(top, #ED8000, #222222);
+    background-image: -o-linear-gradient(top, #ED8000, #222222);
+    background-image: linear-gradient(top, #ED8000, #222222);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ED8000', endColorstr='#222222', GradientType=0);
+    background-repeat: repeat-x;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+/* ACV CHANGE color */
+div.MDD_div  .navbar {
+    color: #FFF500;
+}
+
+
+
+div.MDD_ResultadoYDetallesContainer_PreTesis {
+    width: 450px;
+}
+
+
+table.MDD_TablaResultado_PreTesis {
+    border: 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: #444444;
+    width: 100%;
+}
+
+
+
+
+th.MDD_TablaResultado_PreTesis_title {
+    margin: 0 auto;
+    border: 2px solid #FFD59F;
+    font-size: 11px;
+    padding: 0 2px 0 2px;
+    background-color: #FFD59F;
+}
+
+
+th.MDD_TablaResultado_PreTesis_label {
+    width: 33%;
+    border: 0;
+    font-size: 11px;
+    border: 0;
+    padding: 2px;
+    background-color: white;
+}
+
+th.MDD_TablaResultado_PreTesis_value {
+    width: 30%;
+    border: 0;
+    font-size: 11px;
+    border: 0;
+    padding: 2px;
+    background-color: white;
+}
+
+
+td.MDD_TablaResultado_PreTesis {
+    color: #ED8000;
+    font-size: 12px;
+    border: 0;
+    padding: 2px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+.MDD_IVAinc_PreTesis {
+    font-size: 10px;
+    font-weight: normal;
+}
+
+
+
+
+table.MDD_TablaDetalles_PreTesis {
+    border: 2px solid #FFD59F;
+    font-size: 10px;
+    font-weight: bold;
+    color: #444444;
+    width: 100%;
+}
+
+th.MDD_TablaDetalles_PreTesis {
+    border: 2px solid #FFD59F;
+    font-size: 11px;
+    border: 0;
+    padding: 0px;
+    background-color: #FFD59F;
+}
+
+td.MDD_TablaDetalles_PreTesis {
+    border: 2px solid #FFD59F;
+    padding: 0px 2px 0px 2px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+
+
+
+table.MDD_TablaResultado {
+    border: 0;
+    font-weight: bold;
+    color: #3B1D00;
+    background-color: white;
+}
+
+td.MDD_TablaResultado {
+    border: 0;
+    font-weight: bold;
+    padding: 2px 12px 2px 12px;
+    background-color: white;
+    color: #994900;
+    font-size: 16px;
+}
+
+
+
+th.MDD_TablaResultado_label {
+    border: 0;
+    border: 0;
+    padding: 2px 2px 2px 4px;
+    background-color: white;
+}
+
+th.MDD_TablaResultado_value {
+    border: 0;
+    border: 0;
+    padding: 2px 2px 2px 4px;
+    background-color: white;
+}
+
+
+
+
+.MDD_IVAinc {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+
+
+
+
+table.MDD_TablaDetalles {
+    border: 2px solid #FFD59F;
+    color: #3B1D00;
+}
+
+th.MDD_TablaDetalles {
+    border: 1px solid #FFD59F;
+    border: 0;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    background-color: #FFD59F;
+}
+
+th.MDD_TablaDetalles_smallHeader {
+    font-size: 10px;
+    border: 1px solid white;
+    font-weight: bold;
+    padding: 2px 6px 2px 6px;
+    background-color: #FFD59F;
+}
+
+
+td.MDD_TablaDetalles {
+    border: 2px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+}
+
+td.MDD_TablaDetalles_Precio {
+    text-align: right;
+    border: 2px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+}
+
+
+td.MDD_TablaDetalles_computo {
+    border: 2px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+
+
+td.MDD_TablaDetalles_informe {
+    border: 2px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+    font-size: 10px;
+    color: red;
+}
+
+
+
+table.MDD_TablaSubDetalles {
+    border: 0;
+    color: #3B1D00;
+}
+
+
+
+
+th.MDD_TablaSubDetalles {
+    border: 1px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+    font-weight: bold;
+    text-align: left;
+}
+
+th.MDD_TablaSubDetalles_Center {
+    border: 1px solid #FFD59F;
+    padding: 2px 6px 2px 6px;
+    border-collapse: collapse;
+    font-weight: bold;
+    text-align: center;
+}
+
+td.MDD_TablaSubDetalles {
+    border: 1px solid #FFD59F;
+    padding: 0px 4px 0px 4px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+td.MDD_TablaSubDetalles_Center {
+    border: 1px solid #FFD59F;
+    padding: 0px 4px 0px 4px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+
+
+
+div.MDD_CanvasContainer {
+    display: block;
+    border-width: 1px;
+}
+
+
+div.MDD_CanvasContainer_Left {
+    display: inline-block;
+    border: 1px solid #DDDDDD;
+}
+
+
+div.MDD_CanvasBorder {
+    border: 1px solid #DDDDDD;
+}
+
+
+div.MDD_GrafContainer_Left {
+    display: inline-block;
+}
+
+
+
+/*
+div.MDD_CanvasControlsContainer_Top {
+    display: block;
+}
+*/
+
+div.MDD_CanvasControlsContainer_Right {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 4px;
+}
+
+
+
+div.MDD_TabsBar_Right {
+    margin: 512 0 auto 0;
+    border: 0px;
+    height: 24px;
+
+    background-color: #ED8000;
+    background-image: -moz-linear-gradient(top, #ED8000, #222222);
+    background-image: -ms-linear-gradient(top, #ED8000, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ED8000), to(#222222));
+    background-image: -webkit-linear-gradient(top, #ED8000, #222222);
+    background-image: -o-linear-gradient(top, #ED8000, #222222);
+    background-image: linear-gradient(top, #ED8000, #222222);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ED8000', endColorstr='#222222', GradientType=0);
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+}
+
+div.MDD_Tab_Right {
+    font-size: 11px;
+    font-weight: bold;
+    color: #FFFFFF;
+    display: inline-block;
+    border: 0px;
+    height: 12px;
+
+
+    background-color: #ED8000;
+    background-image: -moz-linear-gradient(top, #ED8000, #222222);
+    background-image: -ms-linear-gradient(top, #222222, #ED8000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#ED8000));
+    background-image: -webkit-linear-gradient(top, #222222, #ED8000);
+    background-image: -o-linear-gradient(top, #222222, #ED8000);
+    background-image: linear-gradient(top, #222222, #ED8000);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#222222', endColorstr='#ED8000', GradientType=0);
+
+
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 2px 4px 2px;
+    margin: 2px 1px 2px 1px;
+}
+
+
+div.MDD_Tab_Selected_Right {
+    font-size: 11px;
+    font-weight: bold;
+    color: #000000;
+    display: inline-block;
+    border: 0px;
+    height: 12px;
+
+    background-color: #EFB000;
+    background-image: -moz-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFFFFF), to(#EFB000));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: -o-linear-gradient(top, #FFFFFF, #EFB000);
+    background-image: linear-gradient(top, #FFFFFF, #EFB000);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#EFB000', GradientType=0);
+
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    padding: 4px 2px 4px 2px;
+    margin: 2px 1px 2px 1px;
+}
+
+
+div.MDD_TabContent_Right {
+    margin-top: 0px;
+    color: #3B1D00;
+}
+
+
+div.MDD_PinnedDiv {
+    margin-top: 0px;
+    color: #3B1D00;
+}
+
+
+span.MDD_Controls_TabTitle {
+    font-weight: bold;
+    font-size: 13px;
+    color: #3B1D00;
+    display: inline-block;
+}
+
+div.MDD_TabContent_Right_Odd {
+    margin-top: 0px;
+    color: #3B1D00;
+    background-color: #ffffd0;
+}
+
+
+
+
+div.MDD_TabContent_Right_Even hr {
+    margin: 4px 0 0 4px;
+}
+
+div.MDD_TabContent_Right_Odd hr {
+    margin: 4px 0 0 4px;
+}
+
+
+
+span.MDD_ControlsLabel_Wide {
+    font-weight: bold;
+    font-size: 11px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 160px;
+}
+
+
+
+span.MDD_Controls_ActionLabel_Small {
+    font-weight: bold;
+    font-size: 10px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 62px;
+}
+
+
+
+span.MDD_Controls_Influencia {
+    font-weight: bold;
+    font-size: 11px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 100px;
+}
+
+span.MDD_Controls_Influencia_Mismo {
+    font-weight: bold;
+    font-size: 12px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 100px;
+}
+
+
+
+span.MDD_ControlsLabel_FreeWidth {
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    line-height: 14px;
+    color: #3B1D00;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+span.MDD_ControlsLabel_HelpComment {
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 14px;
+    line-height: 14px;
+    color: #803f00;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+
+span.MDD_ControlsLabel_Small {
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 70px;
+}
+
+span.MDD_ControlsLabel_Smaller {
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 52px;
+}
+
+span.MDD_ControlsLabel_Smaller_Bigger {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 14px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 52px;
+}
+
+
+
+
+
+
+span.MDD_ControlsLabel_Smalish {
+    font-weight: bold;
+    font-size: 11px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 32px;
+}
+
+span.MDD_ControlsLabel_Smallest {
+    font-weight: bold;
+    font-size: 11px;
+    color: #3B1D00;
+    display: inline-block;
+    width: 24px;
+}
+
+
+
+
+select.ControlsSelect {
+    width: 90px;
+    height: 24px;
+    margin: 2px;
+    font-size: 12px;
+    margin: 2px 0 2px 0;
+}
+
+
+select.ControlsMagnitudeSelect_Small {
+    width: 78px;
+    height: 24px;
+    margin: 2px;
+    font-size: 12px;
+    margin: 2px 0 2px 0;
+}
+
+
+input[type="range"].ControlsRange {
+    width: 72px;
+    height: 18px;
+    font-size: 12px;
+    margin: 2px 0 2px 0;
+    padding: 2px;
+}
+
+
+div.MDD_TabsBar_Right {
+    vertical-align: bottom;
+    line-height: 13px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 0 0 2px;
+}
+
+
+
+
+span.MDD_ControlsCoordinateLabel {
+    width: 32px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+span.MDD_ControlsCoordinate {
+    width: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: right;
+    padding: 0 3px 0 3px;
+    margin: 0 0px 0 0px;
+}
+
+
+span.MDD_ControlsAmbito {
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0 0 0;
+}
+
+
+
+span.MDD_MagnitudeWidth1Digit {
+    display: inline-block;
+    width: 18px;
+    text-align: left;
+    margin-left: 4px;
+}
+
+
+span.MDD_MagnitudeWidth2Digits {
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+    margin-left: 4px;
+}
+
+span.MDD_MagnitudeWidth2Digits_Bold {
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+    margin-left: 4px;
+}
+
+
+span.MDD_MagnitudeWidth4Digits {
+    display: inline-block;
+    width: 34px;
+    text-align: left;
+    margin-left: 4px;
+}
+
+
+
+span.MDD_MagnitudeWidth4Digits_Bold {
+    font-weight: bold;
+    display: inline-block;
+    width: 34px;
+    text-align: left;
+    margin-left: 4px;
+}
+
+
+@media ( max-width: 440px) {
+    div.MDD_movie {
+        display: none;
+    }
+}
+
+
+@media ( min-width: 440px) {
+    div.MDD_movie {
+        display: block;
+    }
+}
+
+
+
+
+
+/* ***********************************
+Rules added for the specific UI of the SeaWorld example
+*/
+
+
+
+tr.CMP_Attraction, td.CMP_Attraction {
+    background-color: #ffffd0;
+}
+
+
+tr.CMP_Attraction_Ride, td.CMP_Attraction_Ride {
+    background-color: #ffd0d0;
+}
+
+
+tr.CMP_Crossing, td.CMP_Crossing {
+    background-color: #d0ffd0;
+}
+
+tr.CMP_Road, td.CMP_Road {
+    background-color: #d0ffff;
+}
+
+
+
+input.Milliseconds_Input {
+    width: 64px;
+}
+
+
+input.Milliseconds_Slider {
+    width: 300px;
+}
