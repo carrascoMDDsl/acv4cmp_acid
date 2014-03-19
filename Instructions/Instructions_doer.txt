@@ -817,12 +817,26 @@ mkdir vagrant_tmp
 cd vagrant_tmp
 git clone https://github.com/carrascoMDDsl/acv4cmp_acid.git
 cd acv4cmp_acid
-vagrant init
+# SOBRA vagrant init
 vagrant up
 google-chrome http://192.168.56.101/
 
 # SUCCESS!
 # END 201403190355
+# ###################################################################
+
+
+# ###################################################################
+
+# FAILED ATTEMPT TO RUN IN WINDOWS
+# Error in guest while provisioning
+#
+# Error installing json:
+# ERROR: Failed to build gem native extension.
+# /opt/vagrant_ruby/bin/ruby extconf.rb
+# ...
+# Running Puppet with manifest.pp...
+# Could not parse options: invalid option: --hiera_config
 # ###################################################################
 
 
