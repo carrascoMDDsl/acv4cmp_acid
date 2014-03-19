@@ -21,7 +21,7 @@ cd ~/Works/MDD/CMProductions/gits/acv4cmp_acid
 # Create initial structure
 mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
 
-cp ~/Works/MDD/CMProductions/SVNs/acv4cmp/trunk/Interviews/Interview4-EndToEnd/Acid-BFG68srsNuMZspGPyb2Latqn.html ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
+cp ~ Works/MDD/CMProductions/SVNs/acv4cmp/trunk/Interviews/Interview4-EndToEnd/Acid-BFG68srsNuMZspGPyb2Latqn.html ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Requirements
 
 
 mkdir ~/Works/MDD/CMProductions/gits/acv4cmp_acid/Instructions

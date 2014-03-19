@@ -1,0 +1,167 @@
+
+<!-- saved from url=(0047)http://162.250.78.100/BFG68srsNuMZspGPyb2Latqn/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body>
+		<h1>Welcome to... The ACID TEST</h1>
+		<h2>Yep! The last oneee!!! You are nearly in!!! - Phase 4</h2>
+		<ul>
+			<li>Imagine what?? An amusement park!! huh!</li>
+			<li>I bet you guessed it! We start to read your mind while you start reading ours ;)</li>
+			<li>Also we can read your mind... "in the future"! Don't believe so?? trust me!
+			</li><li>Want the proof? Let me forecast... "At the end of reading this page you are going to feel a mix of enjoying and hating us"
+			</li><li>Well, this trial it's going to take a bit longer than the others... but we think it's worth effort as you are one of the very few candidates we liked very much in the 3 previous filters (the English test, the domain test and the logics test).</li>
+			<li>We would not be bothering you unless we know that there are lots of chances we all have a happy end.</li>
+		</ul>
+		<h2>What we expect (alias: "Why we call it the acid test" ;) )</h2>
+		<p>
+			We expect this time to see a multidisciplinar candidate.
+			Forget if you applied to frontend, backend, sysadmin or tester... we now want to see "all in one".
+		</p>
+		<p>
+			As a <b>sysadmin,</b> you are going to contruct a server in a "devops" approach: scripting it with vagrant and puppet. As a <b>backend</b> you are going to create a model in PHP and Symfony2. As a <b>frontend</b> you will display the results. And as a <b>tester</b> you're going to create a robot that does your work for you.
+		</p>
+		<p>
+			Seems a lot??
+			Not at all, we are going to request you just very few things in each area, and we are going to give you helpers and tips.
+			In addition, feel free to reach us over skype at any point, drop questions or whatever.
+			This is a conversation, the same way it would be if you were working with us. It's not necessarily unidirectional, but may be bidirectional.
+			Nevertheless, while we are willing to help, we are not necessarily available all the time:
+			Try to write your questions in the most simple way so its easy for us to process.
+		</p>
+		<p>
+			DO NOT OVERCOMPLICATE IT. If you try to "generalize" maybe you get lost in details. We expect to see a bit of you in all the areas.
+		</p>
+		<p>
+			</p><ul>
+				<li>We prefer that you write a server that is not perfect and a model that is not perfect and a frontend that is not perfect and a test that is not perfect...</li>
+				<li>over than you do a perfect SVG in the frontend but do not touch the puppet, the symfony2 or the selenium.</li>
+			</ul>
+		<p></p>
+		<p>
+			We <b>ALREADY KNOW</b> that it's most probable you have never touched several of those tools we request to you... but this is also a way to see how able are you at dealing with technologies you don't know.
+		
+		</p><p style="color: red;">
+			Nearly nobody excels in everything. We DO NOT expect you are perfect. The objective of the ACID TEST is to see that you can deal "more or less" with "anything" regardless of the area. DO NOT FOCUS on doing "one thing well" but "doing end-to-end" even if it's not super-good.
+		</p>
+		<h2>The goal</h2>
+		<h3>Sysadmin with devops approach</h3>
+		<ul>
+			<li>We want that you create a git repo in github, so we can clone it.
+			</li><li>Once we clone it, we will find a <b>vagrant</b> configuration file, so we can launch a virtual machine in <b>VirtualBox</b> with the command <code>vagrant up</code>.
+			</li><li>Although you can provision the machine however you want, we would like to see that you provision the machine with <b>puppet, or its helper puphpet.</b>
+			</li><li>We hope the repo is small, so configure any standard image around there, do not store the disk image inside your repo, only your stuff and point to any image floating around.
+			</li><li>Although you can use whichever distro you are used, we would like to see a LTS ubuntu 14.04. If you choose puphpet you can choose LTS ubuntu 12.04.
+			</li><li>The machine will use the "host-guest" private network (this saves IP-range problems).
+			</li><li>Once the machine is up and running, we will be able to load http://192.168.56.101/ and see an application (alias "the amusement park application").
+			</li><li>The sharing of the filesystem must NOT be NFS to avoid host conflicts.
+			</li><li>Don't waste more than 2 hours with this. If you get stuck, just install any server manually in your VitualBox and move ahead.
+		</li></ul>
+		<h3>Backend PHP</h3>
+		<ul>
+			<li>The amusement park application will be written in Symfony2.
+			</li><li>It will contain ONE route, ONE controller and ONE view (easy, heh!?)
+			</li><li>You can use the bundle-name that you want. If you are short of imagination today, we suggest: "TeamCmp\AmusementParkBundle"
+			</li><li>The route is "/", so when we invoke http://192.168.56.101/ the controller is invoked.
+			</li><li>The application will be displayed in a super-huge screen planted nearby each attraction.
+			</li><li>The application will be "tuned" to the specific attraction id "a7".
+			</li><li>To avoid loosing time, first hardcode the Id in your controller. If you have free time once you have done all the things in all the areas, move that into the "parameters.yml".
+			</li><li>The controller will instantiate a Model. Symfony2 is NOT an MVC framework, it's just a VC and has no restrictions on the Model part. You can use the folder "AmusementParkBundle/Model". Do not loose time creating a service like "ParkManager" that gives you "any potential park". You will be much faster if you don't use Dependency Injection this time and just go ahead with <code>$park = new Park;</code> with Park being just "AmusementParkBundle/Model/Park.php". You are allowed to do this in this acid test to accelerate your speed and free some time to see your multidisciplinarity. You can assume "Park" is exactly SeaWorld this time. If you have free time at the end, you can always come here and create a SF2 service if you want to create generic parks.
+			</li><li>You can have as a reference this simplist model, but you can do it however you prefer, do not stick to this:
+<pre style="border:1px solid #c0c0c0">Park
+{
+	array getAttractions()
+	array getRoads()
+}
+
+Abstract Node
+{
+	string getId()
+	array  getRoads()
+	meters getX()
+	meters getY()
+}
+
+Attraction : Node
+{
+	minutes getWaitTime()
+}
+
+Crossing : Node
+{
+}
+
+Road
+{
+	string getId()
+	Node   getNodeStart()
+	Node   getNodeStop()
+	meters getLength()
+}
+</pre>
+			</li><li>The controller will dump a view that paints the Park, passing to the TWIG the object "park" and passing several extra info that you will discover that you need when you read the "Frontend" part.
+			</li><li>When modelling, if you want, you can hardcode the data to go fast. Don't need you access any database. We know you have accessed mysql milions of times.
+			</li><li>For the waittimes, just generate random numbers. We know you have done POST requests before.
+			</li><li>You can use as the basis for the TWIG template the intial HTML we has the other day.
+			</li><li>Don't waste more than 2 hours with this. If you get stuck, just hardcode everithing in the controller and move ahead.
+		</li></ul>
+		<h3>Frontend</h3>
+		<ul>
+			<li>It is expected that the frontend helps the user of the Amusement Park to find which road to take from "a7" to enjoy the park taking in consideration the wait-times and distances.
+			</li><li>So to be clear: The input is "a7", the output is [one of "r11", "r16" or "r17"].
+			</li><li>We expect you higlight the suggested initial road to the user (don't need to hightlight aaaaall the path to the destination, just one of the r11/r16/r17 triplet).
+			</li><li>For a weird reason you cannot "highlight" in the existing canvas and you are required to create another HTML element: An SVG.
+			</li><li>The SVG will be an arrow (maybe a "marker" element, but choose whatever you want, a triangle or whatever).
+			</li><li>The SVG will be near "a7" signaling the road that the user should choose to enjoy the park the most.
+			</li><li>It's the controller or the model that will tell the twig which road to highlight ("r11", "r16" or "r17").
+			</li><li>Do not overcomplicate. Enjoy the most means "least time to ride" that means "least of (sum of time to walk + time to wait)".
+			</li><li>If you want to grab an already done Dijkstra algorithm for your backend, or "be inspired" by anyone else code around internet, we are not going to reinvent the wheel... it's fine... provided your arrow indicates the proper road.
+			</li><li>Don't waste more than 2 hours with this. If you get stuck, just set any HTML element with variables that come from the model thru the controller into the view, and move ahead.
+		</li></ul>
+		<h3>Testing</h3>
+		<ul>
+			<li>We expect you do at least one unitary test in the model that involves something related to the path-finding algorithm. We don't matter which class you test, which method or what. But should be invoked by the phpunit inside SF2.
+			</li><li>We expect you do at least one functional test. This time not using SF2, but using Selenium2 to drive Firefox or Chrome. The functional test will load the "/" route and will test that there is an arrow done in SVG in the loaded page.
+			</li><li>Don't waste more than 2 hours with this. If you get stuck, just script any functional test with whichever tool and then review all the project, test yourself: destroy the machine, clone a clean repo, issue a vagrnat up, see if it works or not and iterate and refine.
+		</li></ul>
+		<h2>What we are going to look for</h2>
+		<ul>
+			<li>In the previous tests, we said "we want clean code". NOW NOT.
+			</li><li>Now it's all the oposite. In this ACID TEST you are allowed to do <b>ANY BAD THINGS</b> you need so you can work <b>super-quick</b> and build something that "more or less" work, from end to end, but in turn you have to "touch" all the areas:</li>
+			<li>Sysadmin
+			<ul>
+				<li>We expect that you are able to script the creation of a server.
+				</li><li>If vagrant and puppet, nice.
+				</li><li>If not, do it however you want, but we expect the server is created by the system.
+			</li></ul>
+			</li><li>Backend
+			<ul>
+				<li>We expect that you are able to build a mini-application in Symfony2.
+				</li><li>If you can model, nice.
+				</li><li>If not, at least the application should be able to process a single route with a single controller, and paint data in a single template even if you hardcode all in the controller.
+			</li></ul>
+			</li><li>Frontend
+			<ul>
+				<li>We expect that you are able to manage weird htmls interpreting things from a template.
+				</li><li>If you can do it in a SVG, nice.
+				</li><li>If not, at least show us you can play with the html and its values in function of the modelled data.
+			</li></ul>
+			</li><li>Testing
+			<ul>
+				<li>We expect that you are able to do automated testings.
+				</li><li>If you can do a unitary in phpunit and a functional in selenium, nice.
+				</li><li>If not, at least a script, even a bash with an wget, piped to a grep that ensures that the expected result is there.
+			</li></ul>
+		</li></ul>
+		<h2>Final words</h2>
+			We suggest you that you build "a dirty version" of everything and when you have all working end-to-end (a script that creates a server that has a SF2 application that paints any random output and a test that checks a simple string), then you start refining. This way you will ensure you touch all before getting lost in details.
+		<p>
+		Remember what I forecasted??? "At the end of reading this page you are going to feel a mix of enjoying and hating us" Isn't that true??? Now that we have demonstrated we can read your mind, let's try if you can read ours... [wait... tic... tac...]... yes! you did it! We expect you to be in our team very soon.
+		</p>
+		<p>
+			Want me to bet again?? If you enter with us, I can read your future mind again... it says that you are going to be veeery glad to have taken this step.
+		</p>
+		<p>
+			ENJOY!
+		</p>
+	
+
+</body></html>

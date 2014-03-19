@@ -1,0 +1,154 @@
+# 201403190000
+
+# ################################
+# Produce a vagrant provisioning specification using the PuPHPet.com utility
+#
+
+# OS Ubuntu 12.04LTS X32 
+#    We'll ty and repeat later looking around for a 14.04 VM
+
+# IP as Requirement (same as default)
+#   192.168.56.101
+
+# 512 MB
+# No ports on host to forward to guest
+
+
+# Shared folder
+#    Q? This path exists on my machine. 
+#       Hot to make sure it'll be on the machine of any re-used of the vagrant provisioning ?
+#
+#   Host directory
+#   /home/acv/Works/MDD/CMProductions/acid/acid_share
+#
+#   Guest directory
+#   Left as default, won' harm
+#
+#   /var/www
+
+
+# Share Folder Type not NFS: selected default
+#    Because we will choose VirtualBox provider in vagrant, it'll be VBox sharing
+
+
+# No server packages
+#   We'll see at the end of the exercise
+#   if any packages could be included here
+#   
+#   From
+#    https://www.digitalocean.com/community/articles/how-to-install-and-get-started-with-symfony-2-on-an-ubuntu-vps
+#
+#   Symfony2 does not seem to install from an Ubuntu source,
+#   but by direct download 
+#       cd /var/www
+#       wget http://symfony.com/download?v=Symfony_Standard_Vendors_2.3.3.tgz
+#
+#   and expansion of archive in the /var/www directory
+#       tar -zxvf download?v=Symfony_Standard_Vendors_2.3.3.tgz
+#       
+#       chown -R root:www-data app/cache
+#       chown -R root:www-data app/logs
+#       chown -R root:www-data app/config/parameters.yml
+#      
+#      chmod - 775 app/cache
+#      chmod -R 775 app/logs
+#      chmod -R 775 app/config/parameters.yml
+#
+#   Test with
+#   http://www.example.com/Symfony/web/config.php
+#   
+#   Configure 
+#   if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
+#       '127.0.0.1',
+#       '::1',
+#       'YOUR IP',
+#   ))) {
+
+
+
+# No custom files
+#   We'll see at the end of the exercise
+#   if any custom file could be included here
+ 
+
+# Install nginx
+#   It's lighter and event-based, not thread-hungry
+
+# NGINX configuration
+
+# Server name
+#   Just the IP. Won't be using any server name in URLs.
+#   192.168.56.101
+
+# No server aliases
+
+# Document root
+#   /var/www/themepark
+
+# Port
+#   80
+
+# Index pages.
+#   Leave just the index.php
+#   leave also for now the index.html to test the server
+
+# Languages
+# PHP 5.5
+
+# Install composer
+#   Left selected (as default) to allow its management of PHP dependencies
+
+# INI settings
+
+# Timezone 
+# Europe/Brussels
+
+# PHP modules
+# left the ones by default
+# cli intl mcrypt
+#   We'll see later if more are needed and can be specified here
+
+# NO Modules from PEAR 
+
+# Extensions from PECL
+# left the one by default
+# pecl_http
+#   We'll see later if more are needed and can be specified here
+
+# PHP Libraries
+
+# Install XDebug
+# With Settings
+#   xdebug.default_enable=1
+#   xdebug.remote_autostart=0
+#   xdebug.remote_enable=1
+#   xdebug.remote_connect_back=1
+#   xdebug.remote_handler=dbgp
+#   xdebug.remote_port=9000
+#      Will this bind to the virtual adaptor which is exposed as 
+#        in the host ? or do we need to tweak the config, or proxy thru nginx ?
+
+# Install Xhprof for logging
+# Instructions:
+Add to top of your file:
+
+xhprof_enable(XHPROF_FLAGS_CPU + XHPROF_FLAGS_MEMORY);
+
+Add to the bottom of your file:
+
+$xhprof_data = xhprof_disable();
+$appNamespace = 'some_namespace_here';
+include_once '/var/www/xhprof/xhprof_lib/utils/xhprof_lib.php';
+include_once '/var/www/xhprof/xhprof_lib/utils/xhprof_runs.php';
+$xhprof_runs = new XHProfRuns_Default();
+$xhprof_runs->save_run($xhprof_data, $appNamespace);
+
+Depending on if you chose Apache or Nginx and if you're on Debian/Ubuntu/CentOS, the /var/www/ part in the lines above may be different. Simple SSH into your VM and double check to make sure!
+
+These instructions grabbed from geekyboy.com
+
+
+
+
+
+
