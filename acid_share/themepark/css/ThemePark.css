@@ -1,0 +1,67 @@
+/*
+* SeaWorld.css
+*
+* A Javascript exercise.
+*
+* Copyright 2014 by the Author of this code Antonio Carrasco Valero
+* 03/11/2014
+*/
+
+
+body
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+
+/* **********************************************
+ ACV OJO ADDED 20140313 to reuse in other maps
+*/
+
+
+div.MapContainer {
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 621px;
+    width: 960px;
+}
+
+div.MapMap {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: url("../img/01 SeaWorld/SeaWorld-Orlando-Theme-Park-Map background 960x621.jpg");
+    opacity: 0.3;
+    height: 621px;
+    width: 960px;
+}
+
+div.MapCanvas {
+    display: block;
+    position: absolute;
+    background: transparent;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    height: 621px;
+    width: 960px;
+}
+
+
+
+svg.HighlightPathSVG {
+    display: block;
+    position: absolute;
+    background: transparent;
+    top: 0px;
+    left: 0px;
+    height: 621px;
+    width: 960px;
+}
