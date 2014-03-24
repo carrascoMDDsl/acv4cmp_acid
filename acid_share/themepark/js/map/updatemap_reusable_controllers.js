@@ -3,7 +3,7 @@
 /*
  * updatemap_reusable_controllers.js
  *
- * Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+ * A Javascript exercise.
  *
  * Copyright 2014 by the Author of this code Antonio Carrasco Valero
  * 03/11/2014
@@ -12,12 +12,6 @@
 
 
 function UpdateMap_Mixin( thePrototypeToMixIn, $scope, WaitTimesMgr, ParksModel) {
-
-
-
-
-    /* Configurable constants */
-
 
 
 
@@ -304,7 +298,16 @@ function UpdateMap_Mixin( thePrototypeToMixIn, $scope, WaitTimesMgr, ParksModel)
         var _pErrorAlert = function( theResponse) {
             var aMessage = "Error";
             if( theResponse) {
-                aMessage += " " + theResponse;
+                var aMessageString = theResponse;
+                if( !( typeof theResponse == "string")) {
+                    try {
+                        aMessageString = JSON.stringify( theResponse);
+                    }
+                    catch( anException) {
+                        aMessageString = theResponse.toString();
+                    }
+                }
+                aMessage += " " + aMessageString;
             }
             console.log( aMessage);
 

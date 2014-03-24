@@ -3,7 +3,7 @@
 /*
  * ParksModel_services.js
  *
- * Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+ * A Javascript exercise.
  *
  * Copyright 2014 by the Author of this code Antonio Carrasco Valero
  * 03/14/2014
@@ -1335,75 +1335,75 @@ mParksModelServices.factory("ParksModel", [  function(){
             return;
         }
 
-        var aPark_SeaWorld = theParksHome.parkCreate( "Sea World", "NAVD 88");
+        var aPark_01 = theParksHome.parkCreate( "Theme Park 1", "NAVD 88");
 
-        var anAtt_01 = aPark_SeaWorld.attractionCreate( "a1", false, 290, 100);
-        var anAtt_02 = aPark_SeaWorld.attractionCreate( "a2", true,  500, 180);
-        var anAtt_03 = aPark_SeaWorld.attractionCreate( "a3", true,  320, 220);
-        var anAtt_04 = aPark_SeaWorld.attractionCreate( "a4", false, 110, 210);
-        var anAtt_05 = aPark_SeaWorld.attractionCreate( "a5", true,  650, 380);
-        var anAtt_06 = aPark_SeaWorld.attractionCreate( "a6", false, 520, 410);
-        var anAtt_07 = aPark_SeaWorld.attractionCreate( "a7", true,  350, 390);
-        var anAtt_08 = aPark_SeaWorld.attractionCreate( "a8", false, 680, 530);
-        var anAtt_09 = aPark_SeaWorld.attractionCreate( "a9", false, 120, 480);
-        var anAtt_10 = aPark_SeaWorld.attractionCreate( "a10", true,  610, 760);
-        var anAtt_11 = aPark_SeaWorld.attractionCreate( "a11", false, 500, 680);
-        var anAtt_12 = aPark_SeaWorld.attractionCreate( "a12", false, 510, 850);
-        var anAtt_13 = aPark_SeaWorld.attractionCreate( "a13", true,  370, 800);
-        var anAtt_14 = aPark_SeaWorld.attractionCreate( "a14", false, 170, 770);
-        var anAtt_15 = aPark_SeaWorld.attractionCreate( "a15", false, 110, 680);
+        var anAtt_01 = aPark_01.attractionCreate( "a1", false, 290, 100);
+        var anAtt_02 = aPark_01.attractionCreate( "a2", true,  500, 180);
+        var anAtt_03 = aPark_01.attractionCreate( "a3", true,  320, 220);
+        var anAtt_04 = aPark_01.attractionCreate( "a4", false, 110, 210);
+        var anAtt_05 = aPark_01.attractionCreate( "a5", true,  650, 380);
+        var anAtt_06 = aPark_01.attractionCreate( "a6", false, 520, 410);
+        var anAtt_07 = aPark_01.attractionCreate( "a7", true,  350, 390);
+        var anAtt_08 = aPark_01.attractionCreate( "a8", false, 680, 530);
+        var anAtt_09 = aPark_01.attractionCreate( "a9", false, 120, 480);
+        var anAtt_10 = aPark_01.attractionCreate( "a10", true,  610, 760);
+        var anAtt_11 = aPark_01.attractionCreate( "a11", false, 500, 680);
+        var anAtt_12 = aPark_01.attractionCreate( "a12", false, 510, 850);
+        var anAtt_13 = aPark_01.attractionCreate( "a13", true,  370, 800);
+        var anAtt_14 = aPark_01.attractionCreate( "a14", false, 170, 770);
+        var anAtt_15 = aPark_01.attractionCreate( "a15", false, 110, 680);
 
-        var aCros_01 = aPark_SeaWorld.crossingCreate( "c1", 390, 170);
-        var aCros_02 = aPark_SeaWorld.crossingCreate( "c2", 400, 260);
-        var aCros_03 = aPark_SeaWorld.crossingCreate( "c3", 230, 160);
-        var aCros_04 = aPark_SeaWorld.crossingCreate( "c4", 230, 320);
-        var aCros_05 = aPark_SeaWorld.crossingCreate( "c5", 540, 320);
-        var aCros_06 = aPark_SeaWorld.crossingCreate( "c6", 440, 460);
-        var aCros_07 = aPark_SeaWorld.crossingCreate( "c7", 200, 470);
-        var aCros_08 = aPark_SeaWorld.crossingCreate( "c8", 290, 570);
-        var aCros_09 = aPark_SeaWorld.crossingCreate( "c9", 440, 610);
-        var aCros_10 = aPark_SeaWorld.crossingCreate( "c10", 590, 640);
-        var aCros_11 = aPark_SeaWorld.crossingCreate( "c11", 400, 730);
-        var aCros_12 = aPark_SeaWorld.crossingCreate( "c12", 200, 690);
-        var aCros_13 = aPark_SeaWorld.crossingCreate( "c13", 120, 590);
+        var aCros_01 = aPark_01.crossingCreate( "c1", 390, 170);
+        var aCros_02 = aPark_01.crossingCreate( "c2", 400, 260);
+        var aCros_03 = aPark_01.crossingCreate( "c3", 230, 160);
+        var aCros_04 = aPark_01.crossingCreate( "c4", 230, 320);
+        var aCros_05 = aPark_01.crossingCreate( "c5", 540, 320);
+        var aCros_06 = aPark_01.crossingCreate( "c6", 440, 460);
+        var aCros_07 = aPark_01.crossingCreate( "c7", 200, 470);
+        var aCros_08 = aPark_01.crossingCreate( "c8", 290, 570);
+        var aCros_09 = aPark_01.crossingCreate( "c9", 440, 610);
+        var aCros_10 = aPark_01.crossingCreate( "c10", 590, 640);
+        var aCros_11 = aPark_01.crossingCreate( "c11", 400, 730);
+        var aCros_12 = aPark_01.crossingCreate( "c12", 200, 690);
+        var aCros_13 = aPark_01.crossingCreate( "c13", 120, 590);
 
 
-        var aRoad_01 = aPark_SeaWorld.roadCreate( "r1", anAtt_02, aCros_02);
-        var aRoad_02 = aPark_SeaWorld.roadCreate( "r2", anAtt_02, aCros_01);
-        var aRoad_03 = aPark_SeaWorld.roadCreate( "r3", aCros_01, aCros_02);
-        var aRoad_04 = aPark_SeaWorld.roadCreate( "r4", anAtt_01, aCros_01);
-        var aRoad_05 = aPark_SeaWorld.roadCreate( "r5", aCros_02, aCros_04);
-        var aRoad_06 = aPark_SeaWorld.roadCreate( "r6", anAtt_03, aCros_04);
-        var aRoad_07 = aPark_SeaWorld.roadCreate( "r7", anAtt_01, aCros_03);
-        var aRoad_08 = aPark_SeaWorld.roadCreate( "r8", aCros_03, aCros_04);
-        var aRoad_09 = aPark_SeaWorld.roadCreate( "r9", aCros_03, anAtt_04);
-        var aRoad_10 = aPark_SeaWorld.roadCreate( "r10", anAtt_04, aCros_04);
-        var aRoad_11 = aPark_SeaWorld.roadCreate( "r11", aCros_04, anAtt_07);
-        var aRoad_12 = aPark_SeaWorld.roadCreate( "r12", aCros_04, aCros_07);
-        var aRoad_13 = aPark_SeaWorld.roadCreate( "r13", anAtt_05, aCros_05);
-        var aRoad_14 = aPark_SeaWorld.roadCreate( "r14", anAtt_06, aCros_06);
-        var aRoad_15 = aPark_SeaWorld.roadCreate( "r15", aCros_05, aCros_06);
-        var aRoad_16 = aPark_SeaWorld.roadCreate( "r16", aCros_05, anAtt_07);
-        var aRoad_17 = aPark_SeaWorld.roadCreate( "r17", anAtt_07, aCros_06);
-        var aRoad_18 = aPark_SeaWorld.roadCreate( "r18", aCros_06, anAtt_08);
-        var aRoad_19 = aPark_SeaWorld.roadCreate( "r19", anAtt_08, aCros_10);
-        var aRoad_20 = aPark_SeaWorld.roadCreate( "r20", aCros_10, aCros_09);
-        var aRoad_21 = aPark_SeaWorld.roadCreate( "r21", aCros_09, aCros_08);
-        var aRoad_22 = aPark_SeaWorld.roadCreate( "r22", aCros_06, aCros_08);
-        var aRoad_23 = aPark_SeaWorld.roadCreate( "r23", aCros_08, aCros_07);
-        var aRoad_24 = aPark_SeaWorld.roadCreate( "r24", aCros_07, aCros_13);
-        var aRoad_25 = aPark_SeaWorld.roadCreate( "r25", aCros_07, anAtt_09);
-        var aRoad_26 = aPark_SeaWorld.roadCreate( "r26", aCros_13, anAtt_15);
-        var aRoad_27 = aPark_SeaWorld.roadCreate( "r27", aCros_13, aCros_12);
-        var aRoad_28 = aPark_SeaWorld.roadCreate( "r28", aCros_12, anAtt_14);
-        var aRoad_29 = aPark_SeaWorld.roadCreate( "r29", aCros_12, aCros_11);
-        var aRoad_30 = aPark_SeaWorld.roadCreate( "r30", aCros_09, aCros_11);
-        var aRoad_31 = aPark_SeaWorld.roadCreate( "r31", anAtt_11, aCros_11);
-        var aRoad_32 = aPark_SeaWorld.roadCreate( "r32", aCros_10, anAtt_10);
-        var aRoad_33 = aPark_SeaWorld.roadCreate( "r33", anAtt_10, aCros_11);
-        var aRoad_34 = aPark_SeaWorld.roadCreate( "r34", anAtt_10, anAtt_12);
-        var aRoad_35 = aPark_SeaWorld.roadCreate( "r35", anAtt_12, aCros_11);
-        var aRoad_36 = aPark_SeaWorld.roadCreate( "r36", aCros_11, anAtt_13);
+        var aRoad_01 = aPark_01.roadCreate( "r1", anAtt_02, aCros_02);
+        var aRoad_02 = aPark_01.roadCreate( "r2", anAtt_02, aCros_01);
+        var aRoad_03 = aPark_01.roadCreate( "r3", aCros_01, aCros_02);
+        var aRoad_04 = aPark_01.roadCreate( "r4", anAtt_01, aCros_01);
+        var aRoad_05 = aPark_01.roadCreate( "r5", aCros_02, aCros_04);
+        var aRoad_06 = aPark_01.roadCreate( "r6", anAtt_03, aCros_04);
+        var aRoad_07 = aPark_01.roadCreate( "r7", anAtt_01, aCros_03);
+        var aRoad_08 = aPark_01.roadCreate( "r8", aCros_03, aCros_04);
+        var aRoad_09 = aPark_01.roadCreate( "r9", aCros_03, anAtt_04);
+        var aRoad_10 = aPark_01.roadCreate( "r10", anAtt_04, aCros_04);
+        var aRoad_11 = aPark_01.roadCreate( "r11", aCros_04, anAtt_07);
+        var aRoad_12 = aPark_01.roadCreate( "r12", aCros_04, aCros_07);
+        var aRoad_13 = aPark_01.roadCreate( "r13", anAtt_05, aCros_05);
+        var aRoad_14 = aPark_01.roadCreate( "r14", anAtt_06, aCros_06);
+        var aRoad_15 = aPark_01.roadCreate( "r15", aCros_05, aCros_06);
+        var aRoad_16 = aPark_01.roadCreate( "r16", aCros_05, anAtt_07);
+        var aRoad_17 = aPark_01.roadCreate( "r17", anAtt_07, aCros_06);
+        var aRoad_18 = aPark_01.roadCreate( "r18", aCros_06, anAtt_08);
+        var aRoad_19 = aPark_01.roadCreate( "r19", anAtt_08, aCros_10);
+        var aRoad_20 = aPark_01.roadCreate( "r20", aCros_10, aCros_09);
+        var aRoad_21 = aPark_01.roadCreate( "r21", aCros_09, aCros_08);
+        var aRoad_22 = aPark_01.roadCreate( "r22", aCros_06, aCros_08);
+        var aRoad_23 = aPark_01.roadCreate( "r23", aCros_08, aCros_07);
+        var aRoad_24 = aPark_01.roadCreate( "r24", aCros_07, aCros_13);
+        var aRoad_25 = aPark_01.roadCreate( "r25", aCros_07, anAtt_09);
+        var aRoad_26 = aPark_01.roadCreate( "r26", aCros_13, anAtt_15);
+        var aRoad_27 = aPark_01.roadCreate( "r27", aCros_13, aCros_12);
+        var aRoad_28 = aPark_01.roadCreate( "r28", aCros_12, anAtt_14);
+        var aRoad_29 = aPark_01.roadCreate( "r29", aCros_12, aCros_11);
+        var aRoad_30 = aPark_01.roadCreate( "r30", aCros_09, aCros_11);
+        var aRoad_31 = aPark_01.roadCreate( "r31", anAtt_11, aCros_11);
+        var aRoad_32 = aPark_01.roadCreate( "r32", aCros_10, anAtt_10);
+        var aRoad_33 = aPark_01.roadCreate( "r33", anAtt_10, aCros_11);
+        var aRoad_34 = aPark_01.roadCreate( "r34", anAtt_10, anAtt_12);
+        var aRoad_35 = aPark_01.roadCreate( "r35", anAtt_12, aCros_11);
+        var aRoad_36 = aPark_01.roadCreate( "r36", aCros_11, anAtt_13);
     };
     aService.pInitParkHomeSample = pInitParkHomeSample;
 

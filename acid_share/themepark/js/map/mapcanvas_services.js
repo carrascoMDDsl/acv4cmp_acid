@@ -2,7 +2,7 @@
 /*
  * mapcanvas_services.js
  *
- * Code derived from the original supplied by CM Productions to Antonio Carrasco Valero's with the purpose of evaluating Antonio's skills and performance in extending this code with additional functionality, as part of a permanent hiring selection process by CM Productions.
+ * Code derived from the original supplied by XXX to Antonio Carrasco Valero's as the basis for a Javascript experiment.
  *
  * Modifications to the original code authored by Antonio Carrasco Valero
  * 03/11/2014
@@ -33,6 +33,9 @@ mMapCanvasServices.factory("MapCanvasMgr", [ "KineticNG", function( KineticNG){
 
 
         /* Prototype members to be used as constants */
+
+        aPrototype.TWEEN_ALLOWED = true;
+
 
         aPrototype.STAGE_WIDTH  = 960;
         aPrototype.STAGE_HEIGHT = 621;
@@ -488,17 +491,18 @@ mMapCanvasServices.factory("MapCanvasMgr", [ "KineticNG", function( KineticNG){
             }
         }
         */
-        var updatePark_WithRetrievedTimes = function( theTimesResponse ) {
+        var updatePark_WithRetrievedTimes = function( theTimesResponse, theInhibitTween ) {
+            if( this.TWEEN_ALLOWED && !theInhibitTween) {
+                for( var anAttractionId in this._v_AttractionNodesByName ) {
+                    var anAttractionNode = this._v_AttractionNodesByName[ anAttractionId ];
 
-            for( var anAttractionId in this._v_AttractionNodesByName ) {
-                var anAttractionNode = this._v_AttractionNodesByName[ anAttractionId ];
-
-                new KineticNG.Tween({
-                    node:     anAttractionNode,
-                    duration: this.STAR_ANIM_DURATION,
-                    rotation: Math.random() * this.STAR_ANIM_MAXDEGREES,
-                    easing:   KineticNG.Easings.EaseInOut
-                }).play();
+                    new KineticNG.Tween({
+                        node:     anAttractionNode,
+                        duration: this.STAR_ANIM_DURATION,
+                        rotation: Math.random() * this.STAR_ANIM_MAXDEGREES,
+                        easing:   KineticNG.Easings.EaseInOut
+                    }).play();
+                }
             }
             var someWaitTimes = null;
             if( theTimesResponse) {
@@ -527,6 +531,9 @@ mMapCanvasServices.factory("MapCanvasMgr", [ "KineticNG", function( KineticNG){
                         aLabel.offsetX(  aLabel.getTextWidth() / 2 );
                     }
                 }
+            }
+            if( !( this.TWEEN_ALLOWED && !theInhibitTween)) {
+                this._v_Stage.draw();
             }
         };
         aPrototype.updatePark_WithRetrievedTimes = updatePark_WithRetrievedTimes;

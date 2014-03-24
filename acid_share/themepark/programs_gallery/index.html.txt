@@ -3,7 +3,7 @@
 <!--
 * index.html
 *
-* Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+* A Javascript exercise.
 *
 * Copyright 2014 by the Author of this code Antonio Carrasco Valero
 * 03/11/2014
@@ -13,7 +13,7 @@
 	<head>
 		<meta charset="utf-8">
 
-        <title>ACV for CM Productions - skill evaluation exercises</title>
+        <title>Javascript exercise</title>
 
         <!-- BEGIN ACV ng-specific -->
         <meta name="viewport" content="width=device-width">   <!-- user-scalable=no -->
@@ -53,7 +53,7 @@
 
 
         <!-- BEGIN ACV Application specific -->
-        <link rel="stylesheet" href="css/SeaWorld.css">
+        <link rel="stylesheet" href="css/ThemePark.css">
         <!-- END ACV Application specific -->
 
 
@@ -108,6 +108,9 @@
 
 
 
+
+
+
         <!-- BEGIN ACV Application specific -->
 
         <script src="js/shortestpath/shortestpath_services.js"></script>
@@ -145,6 +148,40 @@
 
 
         <!-- END ACV Application specific -->
+
+
+
+
+
+
+
+        <!-- BEGIN ACV Framework specific -->
+        <script src="js/choreography/common_types.js"></script>
+        <script src="js/choreography/specification_common_types.js"></script>
+        <script src="js/choreography/execution_common_types.js"></script>
+        <script src="js/choreography/choreography_types.js"></script>
+        <script src="js/choreography/activity_types.js"></script>
+        <script src="js/choreography/activitysimple_types.js"></script>
+        <script src="js/choreography/activityrequestreply_types.js"></script>
+        <script src="js/choreography/activitycomposite_types.js"></script>
+        <script src="js/choreography/chain_types.js"></script>
+        <script src="js/choreography/enabler_types.js"></script>
+        <script src="js/choreography/enablerimmediate_types.js"></script>
+        <script src="js/choreography/enablertriggered_types.js"></script>
+        <script src="js/choreography/enablerreused_types.js"></script>
+
+
+        <script src="js/choreographies/choreography_example_services.js"></script>
+
+
+        <script src="js/choreographies/obtainwaittimes_behaviors.js"></script>
+        <script src="js/choreographies/choreography_recommendation.js"></script>
+
+        <script src="js/choreography_presentation/choreography_presentation_controllers.js"></script>
+        <script src="js/choreography_test/choreography_test_controllers.js"></script>
+        <!-- END ACV Framework specific -->
+
+
 
 
 
@@ -246,13 +283,13 @@
                         <h3>Authored by Antonio Carrasco Valero</h3>
                         <br/>
 
-                        <legend>carrasco4CMP (at) ModelDD.org</legend>
+                        <legend>carrasco4XXX (at) ModelDD.org</legend>
                         <br/>
 
                         <legend>
-                            For the purpose of the evaluation by CM Productions,
+                            For the purpose of the evaluation by XXX,
                             of Antonio Carrasco Valero's skills and performance,
-                            as part of CM Productions selection process towars a permanent hire.
+                            as part of XXX selection process towars a permanent hire.
                         </legend>
                         <br/>
 
@@ -803,12 +840,12 @@
                         <br/>
 
 
-                        <div id="seaworld-container" class="MapContainer">
-                            <div id="seaworld-map"  class="MapMap"></div>
-                            <div id="seaworld-canvas"  class="MapCanvas"></div>
+                        <div id="themepark-container" class="MapContainer">
+                            <div id="themepark-map"  class="MapMap"></div>
+                            <div id="themepark-canvas"  class="MapCanvas"></div>
                         </div>
 
-                        <div x-ng-controller="WaitTimesCanvasCtrl" x-ng-init="waitTimesCanvas.pInitCanvas( 'seaworld-canvas')"></div>
+                        <div x-ng-controller="WaitTimesCanvasCtrl" x-ng-init="waitTimesCanvas.pInitCanvas( 'themepark-canvas')"></div>
                     </div>
                 </div>
             </script>
@@ -1063,8 +1100,6 @@
 
 
 
-
-
             <script type="text/ng-template" id="partials/programs.html">
                 <div class="container-fluid">
                     <div class="row-fluid">
@@ -1086,25 +1121,25 @@
                             <option value="index.html">index.html - main application page</option>
                             <option value="app.js">app.js - main URL path router and page dispatcher</option>
                             <optgroup label="Wait-times">
-                                <option value="waittimes_services.js">waittimes_services.js - server interactions to retrieve Wait-times</option>
                             </optgroup>
-                            <optgroup label="Map graphics">
+                            <optgroup label="Map graphics (common)">
                                 <option value="mapcanvas_services.js">mapcanvas_services.js - Map renderer with Kinectic, used by Wait-times and Recommendation</option>
                                 <option value="updatemap_reusable_controllers.js">updatemap_reusable_controllers.js - Mixin for update maps responsibility</option>
-                                <option value="highlightrecommendation_services.js">highlightrecommendation_services.js - Renderer or Recommented Path in SVG</option>
                              </optgroup>
-                            <optgroup label="SeaWorld map">
+                            <optgroup label="WaitTimes">
                                 <option value="WaitTimes_canvas.js">WaitTimes_canvas.js - Controller in charge of Map Renderering setup</option>
                                 <option value="WaitTimes_controllers.js">WaitTimes_controllers.js - periodical refresh of Wait-times Map</option>
+                                <option value="waittimes_services.js">waittimes_services.js - server interactions to retrieve Wait-times</option>
                             </optgroup>
                             <optgroup label="Recommendation">
                                 <option value="Recommendation_canvas.js">Recommendation_canvas.js - Recommendation Map and Directions Renderer</option>
                                 <option value="Recommendation_controllers.js">Recommendation_controllers.js - periodical refresh of Recommendation</option>
+                                <option value="highlightrecommendation_services.js">highlightrecommendation_services.js - Renderer or Recommented Path in SVG</option>
                             </optgroup>
                             <optgroup label="Objects">
+                                <option value="objects_controllers.js">objects_controllers.js - presentation of object model sample instance</option>
                                 <option value="ParksModel_services.js">ParksModel_services.js - object oriented model implementation</option>
                                 <option value="ParkPaths_services.js">ParkPaths_services.js - computation of paths over the object oriented model</option>
-                                <option value="objects_controlers.js">objects_controllers.js - presentation of object model sample instance</option>
                                 <option value="shortestpath_services.js">shortestpath_services.js - Dijkstra's single source shortest path algorithm</option>
                             </optgroup>
                             <optgroup label="Brackets">
@@ -1265,9 +1300,8 @@
                                 </legend>
                             </div>
 
-
-                            <div x-ng-switch-when="objects_controlers.js" >
-                                <h4>objects_controlers.js - presentation of object model sample instance</h4>
+                            <div x-ng-switch-when="objects_controllers.js" >
+                                <h4>objects_controllers.js - presentation of object model sample instance</h4>
                                 <legend>
                                     Instantiates and presents a network of instances of the object model.
                                     <br/>
@@ -1351,6 +1385,31 @@
 
 
 
+
+
+
+
+            <script type="text/ng-template" id="partials/choreography.html">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <h3>Example Choreography</h3>
+                        <br/>
+
+                        <legend>
+                            A Choreography is a specification of the interaction activities between parties,
+                            in this case, between the User and different parts of the User Interface,
+                            and the Controllers of the User Interface with underlying services,
+                            and from these with the server.
+                        </legend>
+                        <br/>
+
+                        <div x-ng-include="'partials/choreography_inspector/choreography_inspector.html'"
+                             x-ng-controller="ObjectHolderCtrl"
+                             x-ng-init="pInitWith( choreographyCtrl.choreography)"></div>
+
+                    </div>
+                </div>
+            </script>
 
 
 
@@ -1491,7 +1550,7 @@
 
         <!-- header -->
         <div class="MDD_PageHead">
-            <h1>&emsp;<a href="#/map">ACV for CM Productions</a></h1>
+            <h1>&emsp;<a href="#/map">A Javascript exercise</a></h1>
         </div>
 
         <!-- menuBar -->
@@ -1507,6 +1566,7 @@
                         <li data-match-route="/brackets"      ><a href="#/brackets"       >Brackets</a></li>
                         <li data-match-route="/diagrams"      ><a href="#/diagrams"       >Diagrams</a></li>
                         <li data-match-route="/programs"      ><a href="#/programs"       >Programs</a></li>
+                        <li data-match-route="/choreography"  ><a href="#/choreography"   >Choreography</a></li>
                         <li data-match-route="/compatibility" ><a href="#/compatibility"  >Compatibility</a></li>
                         <li data-match-route="/technologies"  ><a href="#/technologies"   >Technologies</a></li>
                     </ul>
@@ -1534,20 +1594,9 @@
         <div class="container-fluid">
             <div class="row-fluid">
 
-                <small>
-                    &copy; 2014 Antonio Carrasco Valero
-                    <br/>
-                    Licensed to CM Productions for the exclusive use of
-                    evaluating Antonio Carrasco Valero's (author's) skills and performance
-                    as part of a permanent hiring selection process by CM Productions.
-                    No other use of this code is authorized.
-                    <br/>
-                    Distribution and copy of this code is prohibited.
-                    <br/>
-                    "ThemePark" domain, and original code now in file "WaitTimes_canvas.js" supplied by CP Productions.
-                    <br/>
-                    Artworks about the "SeaWorld" map background property of the theme park owners or franchise.
-                </small>
+                <p style="font-size: 9px">
+                    &copy; 2014 Antonio Carrasco Valero. A Javascript exercise.
+                </p>
             </div>
         </div>
 

@@ -2,7 +2,7 @@
 /*
  * highlightrecommendation_services.js
  *
- * Code derived from the original supplied by CM Productions to Antonio Carrasco Valero's with the purpose of evaluating Antonio's skills and performance in extending this code with additional functionality, as part of a permanent hiring selection process by CM Productions.
+ * Code derived from the original supplied by XXX to Antonio Carrasco Valero's as the basis for a Javascript experiment.
  *
  * Modifications to the original code authored by Antonio Carrasco Valero
  * 03/11/2014

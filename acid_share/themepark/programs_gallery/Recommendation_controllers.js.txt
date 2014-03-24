@@ -3,7 +3,7 @@
 /*
  * Recommendation_controllers.js
  *
- * Licensed to CM Productions for the exclusive use of evaluating Antonio Carrasco Valero's (author's) skills and performance as part of a permanent hiring selection process by CM Productions. No other use of this code is authorized. Distribution and copy of this code is prohibited.
+ * A Javascript exercise.
  *
  * Copyright 2014 by the Author of this code Antonio Carrasco Valero
  * 03/11/2014
@@ -16,7 +16,7 @@
 angular.module('cmpinterviewjs').controller(
     'RecommendationCtrl',
     [ '$scope', 'WaitTimesMgr', 'ParksModel', 'ParkPaths', 'HighlightRecommendationMgr',
-        function ( $scope, WaitTimesMgr, ParksModel, ParkPaths, HighlightRecommendationMgr) {
+function ( $scope, WaitTimesMgr, ParksModel, ParkPaths, HighlightRecommendationMgr) {
 
 
 
@@ -343,8 +343,9 @@ angular.module('cmpinterviewjs').controller(
 
 
 
-        /* Updates the list of paths to other Attractions, after selection of an Attraction or list order.
-         Requests from the shortestpath service the computation of the shortest paths to all other attractions.
+         /* Updates the list of paths to other Attractions,
+         after selection of an origin Attraction, or selection of list ordering criteria.
+         Delegates in the shortestpath service the computation of the shortest paths to all other attractions.
          Sorts the Paths according to the selected criteria.
          */
         var _pRefreshRecommendation = function() {
